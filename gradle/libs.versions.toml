@@ -26,12 +26,14 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "collectionsImmutable" }
 anstyle = { module = "io.github.kotlinmania:anstyle-kotlin", version.ref = "anstyle" }
 
+anstyle-kotlin = { module = "io.github.kotlinmania:anstyle-kotlin", version = "0.1.5" }
 [bundles]
 toml-commonMain = [
-  "kotlinx-coroutines-core",
-  "kotlinx-serialization-core",
-  "kotlinx-serialization-json",
-  "kotlinx-datetime",
-  "collections-immutable",
-  "anstyle",
+    "kotlinx-coroutines-core",
+    "kotlinx-serialization-core",
+    "kotlinx-serialization-json",
+    "kotlinx-datetime",
+    "collections-immutable",
+    "anstyle",
+    "anstyle-kotlin",
 ]
