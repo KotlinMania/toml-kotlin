@@ -53,10 +53,8 @@ public sealed class Value {
 
     /** Represents a TOML table */
     public data class Table(
-        public val value: TomlMap<kotlin.String, Value>,
+        public val value: Map<kotlin.String, Value> = emptyMap(),
     ) : Value() {
-        public constructor(map: Map<kotlin.String, Value> = emptyMap()) : this(TomlMap(map))
-
         override fun toString(): kotlin.String = value.toString()
     }
 
@@ -97,7 +95,7 @@ public sealed class Value {
     public val isArray: kotlin.Boolean get() = this is Array
 
     /** Extracts the table value if it is a table. */
-    public fun asTable(): TomlMap<kotlin.String, Value>? = (this as? Table)?.value
+    public fun asTable(): Map<kotlin.String, Value>? = (this as? Table)?.value
 
     /** Tests whether this value is a table. */
     public val isTable: kotlin.Boolean get() = this is Table
@@ -136,6 +134,6 @@ public sealed class Value {
 
         public fun from(value: List<Value>): Value = Array(value)
 
-        public fun from(value: Map<kotlin.String, Value>): Value = Table(TomlMap(value))
+        public fun from(value: Map<kotlin.String, Value>): Value = Table(value)
     }
 }
