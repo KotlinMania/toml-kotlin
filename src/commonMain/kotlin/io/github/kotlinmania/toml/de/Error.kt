@@ -18,15 +18,12 @@ package io.github.kotlinmania.toml.de
 public class Error(
     override val message: String,
     private var input: String? = null,
-    private val keys: MutableList<String> = mutableListOf(),
     private var span: IntRange? = null,
 ) : Exception(message) {
+    private val keys: MutableList<String> = mutableListOf()
     public fun addKey(key: String) {
         keys.add(0, key)
     }
-
-    /** What went wrong */
-    public fun message(): String = message
 
     /** The start/end index into the original document where the error occurred */
     public fun span(): IntRange? = span
@@ -111,7 +108,6 @@ public class Error(
             Error(
                 message = msg.toString(),
                 input = null,
-                keys = mutableListOf(),
                 span = span,
             )
 
