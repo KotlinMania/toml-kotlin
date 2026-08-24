@@ -4,10 +4,10 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 8/39 (20.5%)
-- **Function parity:** 43/576 matched (target 94) — 7.5%
-- **Class/type parity:** 9/172 matched (target 27) — 5.2%
-- **Combined symbol parity:** 52/748 matched (target 121) — 7.0%
+- **Files Present:** 8/36 (22.2%)
+- **Function parity:** 43/572 matched (target 96) — 7.5%
+- **Class/type parity:** 9/167 matched (target 28) — 5.4%
+- **Combined symbol parity:** 52/739 matched (target 124) — 7.0%
 - **Average inline-code cosine:** 0.32 (function body across 8 matched files)
 - **Average documentation cosine:** 0.53 (doc text across 8 matched files)
 - **Cheat-zeroed Files:** 1
@@ -31,7 +31,7 @@ Based on AST analysis, here are the concrete next steps.
 Critical missing files (>10 dependencies):
 
 1. **parser.devalue** (12 deps)
-   - Path: `src/de/parser/devalue.rs`
+   - Path: `de/parser/devalue.rs`
    - Essential for 12 other files
 
 ## Detailed Work Items
@@ -40,7 +40,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 1. de.error
 
-- **Target:** `de.Error [PROVENANCE-FALLBACK]`
+- **Target:** `de.Error`
 - **Similarity:** 0.50
 - **Dependents:** 17
 - **Priority Score:** 17072204.0
@@ -49,15 +49,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/2 matched
 - **Missing types:** `TomlSink`
 - **Tests:** 8/8 matched
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `de/error.rs` vs expected `de/error.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:de/error.rs` vs expected `de/error.rs`
-- **Proposed provenance header:** `// port-lint: source de/error.rs` (current: `// port-lint: source de/error.rs`)
-- **Proposed provenance header:** `// port-lint: tests de/error.rs` (current: `// port-lint: tests de/error.rs`)
-- **Lint issues:** 2
 
 ### 2. ser.style
 
-- **Target:** `ser.Style [PROVENANCE-FALLBACK]`
+- **Target:** `ser.Style`
 - **Similarity:** 1.00
 - **Dependents:** 7
 - **Priority Score:** 7000100.0
@@ -65,13 +60,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 1/1 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `ser/style.rs` vs expected `ser/style.rs`
-- **Proposed provenance header:** `// port-lint: source ser/style.rs` (current: `// port-lint: source ser/style.rs`)
-- **Lint issues:** 1
 
 ### 3. table
 
-- **Target:** `toml.Table [PROVENANCE-FALLBACK]`
+- **Target:** `toml.Table`
 - **Similarity:** 0.00
 - **Dependents:** 6
 - **Priority Score:** 6626310.0
@@ -79,15 +71,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `try_from`, `try_into`, `fmt`, `from_str`, `serialize`, `deserialize`, `expecting`, `visit_unit`, `visit_map`, `deserialize_any`, `deserialize_enum`, `deserialize_option`, `deserialize_newtype_struct`, `into_deserializer`, `serialize_bool`, `serialize_i8`, `serialize_i16`, `serialize_i32`, `serialize_i64`, `serialize_u8`, `serialize_u16`, `serialize_u32`, `serialize_u64`, `serialize_f32`, `serialize_f64`, `serialize_char`, `serialize_str`, `serialize_bytes`, `serialize_unit`, `serialize_unit_struct`, `serialize_unit_variant`, `serialize_newtype_struct`, `serialize_newtype_variant`, `serialize_none`, `serialize_some`, `serialize_seq`, `serialize_tuple`, `serialize_tuple_struct`, `serialize_tuple_variant`, `serialize_map`, `serialize_struct`, `serialize_struct_variant`, `new`, `with_capacity`, `serialize_key`, `serialize_value`, `end`, `serialize_field`
 - **Types:** 1/15 matched (target 2)
 - **Missing types:** `Err`, `Visitor`, `Value`, `Error`, `Deserializer`, `TableSerializer`, `Ok`, `SerializeSeq`, `SerializeTuple`, `SerializeTupleStruct`, `SerializeTupleVariant`, `SerializeMap`, `SerializeStruct`, `SerializeStructVariant`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `table.rs` vs expected `table.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:table.rs` vs expected `table.rs`
-- **Proposed provenance header:** `// port-lint: source table.rs` (current: `// port-lint: source table.rs`)
-- **Proposed provenance header:** `// port-lint: tests table.rs` (current: `// port-lint: tests table.rs`)
-- **Lint issues:** 2
 
 ### 4. value
 
-- **Target:** `toml.Value [PROVENANCE-FALLBACK]`
+- **Target:** `toml.Value`
 - **Similarity:** 0.04
 - **Dependents:** 4
 - **Priority Score:** 5081809.5
@@ -95,15 +82,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `try_from`, `try_into`, `get_mut`, `is_integer`, `is_float`, `as_bool`, `is_bool`, `as_str`, `is_str`, `is_datetime`, `as_array_mut`, `is_array`, `as_table_mut`, `is_table`, `index`, `index_mut`, `fmt`, `from_str`, `serialize`, `deserialize`, `expecting`, `visit_bool`, `visit_i64`, `visit_u64`, `visit_u32`, `visit_i32`, `visit_f64`, `visit_str`, `visit_string`, `visit_some`, `visit_seq`, `visit_map`, `deserialize_any`, `deserialize_enum`, `deserialize_option`, `deserialize_newtype_struct`, `new`, `next_element_seed`, `size_hint`, `next_key_seed`, `next_value_seed`, `variant_seed`, `unit_variant`, `newtype_variant_seed`, `tuple_variant`, `struct_variant`, `into_deserializer`, `serialize_bool`, `serialize_i8`, `serialize_i16`, `serialize_i32`, `serialize_i64`, `serialize_u8`, `serialize_u16`, `serialize_u32`, `serialize_u64`, `serialize_f32`, `serialize_f64`, `serialize_char`, `serialize_str`, `serialize_bytes`, `serialize_unit`, `serialize_unit_struct`, `serialize_unit_variant`, `serialize_newtype_struct`, `serialize_newtype_variant`, `serialize_none`, `serialize_some`, `serialize_seq`, `serialize_tuple`, `serialize_tuple_struct`, `serialize_tuple_variant`, `serialize_map`, `serialize_struct`, `serialize_struct_variant`, `serialize_element`, `end`, `serialize_field`, `serialize_key`, `serialize_value`, `tuple`, `struct_`
 - **Types:** 2/27 matched (target 9)
 - **Missing types:** `Output`, `Index`, `Sealed`, `Err`, `ValueVisitor`, `Error`, `SeqDeserializer`, `MapDeserializer`, `Variant`, `MapEnumDeserializer`, `Deserializer`, `ValueSerializer`, `Ok`, `SerializeSeq`, `SerializeTuple`, `SerializeTupleStruct`, `SerializeTupleVariant`, `SerializeMap`, `SerializeStruct`, `SerializeStructVariant`, `ValueSerializeVec`, `ValueSerializeMap`, `ValueSerializeTupleVariant`, `ValueSerializeStructVariant`, `ValueSerializeVariant`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `value.rs` vs expected `value.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:value.rs` vs expected `value.rs`
-- **Proposed provenance header:** `// port-lint: source value.rs` (current: `// port-lint: source value.rs`)
-- **Proposed provenance header:** `// port-lint: tests value.rs` (current: `// port-lint: tests value.rs`)
-- **Lint issues:** 2
 
 ### 5. document.buffer
 
-- **Target:** `document.Buffer [PROVENANCE-FALLBACK]`
+- **Target:** `document.Buffer`
 - **Similarity:** 0.70
 - **Dependents:** 5
 - **Priority Score:** 5011303.0
@@ -111,13 +93,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `fmt`
 - **Types:** 2/2 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `ser/document/buffer.rs` vs expected `ser/document/buffer.rs`
-- **Proposed provenance header:** `// port-lint: source ser/document/buffer.rs` (current: `// port-lint: source ser/document/buffer.rs`)
-- **Lint issues:** 1
 
 ### 6. map
 
-- **Target:** `map.Map [PROVENANCE-FALLBACK]`
+- **Target:** `map.Map`
 - **Similarity:** 0.06
 - **Dependents:** 2
 - **Priority Score:** 2535809.2
@@ -125,29 +104,21 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `new`, `with_capacity`, `get_mut`, `get_key_value`, `insert`, `remove_entry`, `retain`, `entry`, `len`, `iter`, `iter_mut`, `keys`, `values`, `mut_entries`, `is_dotted`, `is_implicit`, `is_inline`, `set_implicit`, `set_dotted`, `set_inline`, `default`, `clone`, `eq`, `index`, `index_mut`, `fmt`, `from_iter`, `extend`, `key`, `or_insert`, `or_insert_with`, `into_mut`, `into_iter`
 - **Types:** 0/20 matched (target 2)
 - **Missing types:** `Map`, `MapImpl`, `RandomState`, `Output`, `Entry`, `VacantEntry`, `OccupiedEntry`, `VacantEntryImpl`, `OccupiedEntryImpl`, `Item`, `IntoIter`, `Iter`, `IterImpl`, `IterMut`, `IterMutImpl`, `IntoIterImpl`, `Keys`, `KeysImpl`, `Values`, `ValuesImpl`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `map.rs` vs expected `map.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:map.rs` vs expected `map.rs`
-- **Proposed provenance header:** `// port-lint: source map.rs` (current: `// port-lint: source map.rs`)
-- **Proposed provenance header:** `// port-lint: tests map.rs` (current: `// port-lint: tests map.rs`)
-- **Lint issues:** 2
 
 ### 7. ser.error
 
-- **Target:** `ser.Error [PROVENANCE-FALLBACK]`
+- **Target:** `ser.Error`
 - **Similarity:** 0.27
 - **Dependents:** 0
 - **Priority Score:** 31007.3
-- **Functions:** 5/8 matched (target 13)
+- **Functions:** 5/8 matched (target 15)
 - **Missing functions:** `new`, `from`, `fmt`
-- **Types:** 2/2 matched (target 7)
+- **Types:** 2/2 matched (target 8)
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `ser/error.rs` vs expected `ser/error.rs`
-- **Proposed provenance header:** `// port-lint: source ser/error.rs` (current: `// port-lint: source ser/error.rs`)
-- **Lint issues:** 1
 
 ### 8. lib
 
-- **Target:** `toml.Lib [ZERO] [PROVENANCE-FALLBACK]`
+- **Target:** `toml.Lib [ZERO]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10110.0
@@ -155,11 +126,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/1 matched (target 2)
 - **Missing types:** `ReadmeDoctests`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `lib.rs` vs expected `lib.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:lib.rs` vs expected `lib.rs`
-- **Proposed provenance header:** `// port-lint: source lib.rs` (current: `// port-lint: source lib.rs`)
-- **Proposed provenance header:** `// port-lint: tests lib.rs` (current: `// port-lint: tests lib.rs`)
-- **Lint issues:** 2
 
 ## Success Criteria
 
@@ -181,10 +147,10 @@ do not treat them as the next implementation target by default.
 
 | Source | Expected target | Deps | Source path | Expected path |
 |--------|-----------------|------|-------------|---------------|
-| `deserializer.mod` | `de.deserializer.Mod` | 0 | `src/de/deserializer/mod.rs` | `de/deserializer/Mod.kt` |
-| `de.mod` | `de.Mod` | 0 | `src/de/mod.rs` | `de/Mod.kt` |
-| `parser.mod` | `de.parser.Mod` | 0 | `src/de/parser/mod.rs` | `de/parser/Mod.kt` |
-| `document.mod` | `ser.document.Mod` | 0 | `src/ser/document/mod.rs` | `ser/document/Mod.kt` |
-| `ser.mod` | `ser.Mod` | 0 | `src/ser/mod.rs` | `ser/Mod.kt` |
-| `value.mod` | `ser.value.Mod` | 0 | `src/ser/value/mod.rs` | `ser/value/Mod.kt` |
+| `deserializer.mod` | `de.deserializer.Mod` | 0 | `de/deserializer/mod.rs` | `de/deserializer/Mod.kt` |
+| `de.mod` | `de.Mod` | 0 | `de/mod.rs` | `de/Mod.kt` |
+| `parser.mod` | `de.parser.Mod` | 0 | `de/parser/mod.rs` | `de/parser/Mod.kt` |
+| `document.mod` | `ser.document.Mod` | 0 | `ser/document/mod.rs` | `ser/document/Mod.kt` |
+| `ser.mod` | `ser.Mod` | 0 | `ser/mod.rs` | `ser/Mod.kt` |
+| `value.mod` | `ser.value.Mod` | 0 | `ser/value/mod.rs` | `ser/value/Mod.kt` |
 
