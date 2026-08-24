@@ -1,4 +1,4 @@
-// port-lint: source src/table.rs
+// port-lint: source table.rs
 package io.github.kotlinmania.toml
 
 import io.github.kotlinmania.toml.map.TomlMap

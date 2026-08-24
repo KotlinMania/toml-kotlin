@@ -1,4 +1,4 @@
-// port-lint: source src/map.rs
+// port-lint: source map.rs
 package io.github.kotlinmania.toml.map
 
 /**
@@ -26,8 +26,11 @@ public class TomlMap<K, V>(
     override val values: Collection<V> get() = underlying.values
 
     override fun containsKey(key: K): Boolean = underlying.containsKey(key)
+
     override fun containsValue(value: V): Boolean = underlying.containsValue(value)
+
     override fun get(key: K): V? = underlying[key]
+
     override fun isEmpty(): Boolean = underlying.isEmpty()
 
     public fun put(key: K, value: V): V? = underlying.put(key, value)
