@@ -1,7 +1,5 @@
-// port-lint: source src/value.rs
+// port-lint: source value.rs
 package io.github.kotlinmania.toml
-
-import io.github.kotlinmania.toml.map.TomlMap
 
 /**
  * Representation of a TOML value.

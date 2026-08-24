@@ -21,6 +21,7 @@ public class Error(
     private var span: IntRange? = null,
 ) : Exception(message) {
     private val keys: MutableList<String> = mutableListOf()
+
     public fun addKey(key: String) {
         keys.add(0, key)
     }
