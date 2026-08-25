@@ -5,23 +5,23 @@ Based on AST analysis, here are the concrete next steps.
 ## Summary
 
 - **Files Present:** 11/36 (30.6%)
-- **Function parity:** 75/563 matched (target 144) — 13.3%
-- **Class/type parity:** 15/167 matched (target 47) — 9.0%
-- **Combined symbol parity:** 90/730 matched (target 191) — 12.3%
+- **Function parity:** 76/563 matched (target 150) — 13.5%
+- **Class/type parity:** 15/167 matched (target 48) — 9.0%
+- **Combined symbol parity:** 91/730 matched (target 198) — 12.5%
 - **Average inline-code cosine:** 0.29 (function body across 11 matched files)
-- **Average documentation cosine:** 0.52 (doc text across 11 matched files)
+- **Average documentation cosine:** 0.51 (doc text across 11 matched files)
 - **Cheat-zeroed Files:** 1
 - **Critical Issues:** 9 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
 ### 1. de.error
-- **Similarity:** 0.50 (needs 35% improvement)
+- **Similarity:** 0.53 (needs 32% improvement)
 - **Dependencies:** 17
 - **Priority Score:** 17072204.0
-- **Functions:** 14/20 matched (target 17)
+- **Functions:** 14/20 matched (target 22)
 - **Missing functions:** `new`, `message`, `render_literal`, `fmt`, `into_inner`, `report_error`
-- **Types:** 1/2 matched
+- **Types:** 1/2 matched (target 3)
 - **Missing types:** `TomlSink`
 - **Symbol Deficit:** 7 (functions: 6, types: 1)
 - **Action:** Deep review - likely missing major functionality
@@ -50,12 +50,12 @@ Every matched file is listed below with function and type symbol parity.
 ### 1. de.error
 
 - **Target:** `de.Error`
-- **Similarity:** 0.50
+- **Similarity:** 0.53
 - **Dependents:** 17
 - **Priority Score:** 17072204.0
-- **Functions:** 14/20 matched (target 17)
+- **Functions:** 14/20 matched (target 22)
 - **Missing functions:** `new`, `message`, `render_literal`, `fmt`, `into_inner`, `report_error`
-- **Types:** 1/2 matched
+- **Types:** 1/2 matched (target 3)
 - **Missing types:** `TomlSink`
 - **Tests:** 8/8 matched
 
@@ -119,9 +119,9 @@ Every matched file is listed below with function and type symbol parity.
 - **Target:** `toml.Value`
 - **Similarity:** 0.04
 - **Dependents:** 4
-- **Priority Score:** 5081809.5
-- **Functions:** 9/91 matched (target 34)
-- **Missing functions:** `try_from`, `try_into`, `get_mut`, `is_integer`, `is_float`, `as_bool`, `is_bool`, `as_str`, `is_str`, `is_datetime`, `as_array_mut`, `is_array`, `as_table_mut`, `is_table`, `index`, `index_mut`, `fmt`, `from_str`, `serialize`, `deserialize`, `expecting`, `visit_bool`, `visit_i64`, `visit_u64`, `visit_u32`, `visit_i32`, `visit_f64`, `visit_str`, `visit_string`, `visit_some`, `visit_seq`, `visit_map`, `deserialize_any`, `deserialize_enum`, `deserialize_option`, `deserialize_newtype_struct`, `new`, `next_element_seed`, `size_hint`, `next_key_seed`, `next_value_seed`, `variant_seed`, `unit_variant`, `newtype_variant_seed`, `tuple_variant`, `struct_variant`, `into_deserializer`, `serialize_bool`, `serialize_i8`, `serialize_i16`, `serialize_i32`, `serialize_i64`, `serialize_u8`, `serialize_u16`, `serialize_u32`, `serialize_u64`, `serialize_f32`, `serialize_f64`, `serialize_char`, `serialize_str`, `serialize_bytes`, `serialize_unit`, `serialize_unit_struct`, `serialize_unit_variant`, `serialize_newtype_struct`, `serialize_newtype_variant`, `serialize_none`, `serialize_some`, `serialize_seq`, `serialize_tuple`, `serialize_tuple_struct`, `serialize_tuple_variant`, `serialize_map`, `serialize_struct`, `serialize_struct_variant`, `serialize_element`, `end`, `serialize_field`, `serialize_key`, `serialize_value`, `tuple`, `struct_`
+- **Priority Score:** 5071809.5
+- **Functions:** 10/91 matched (target 35)
+- **Missing functions:** `try_from`, `try_into`, `get_mut`, `is_integer`, `is_float`, `as_bool`, `is_bool`, `is_str`, `is_datetime`, `as_array_mut`, `is_array`, `as_table_mut`, `is_table`, `index`, `index_mut`, `fmt`, `from_str`, `serialize`, `deserialize`, `expecting`, `visit_bool`, `visit_i64`, `visit_u64`, `visit_u32`, `visit_i32`, `visit_f64`, `visit_str`, `visit_string`, `visit_some`, `visit_seq`, `visit_map`, `deserialize_any`, `deserialize_enum`, `deserialize_option`, `deserialize_newtype_struct`, `new`, `next_element_seed`, `size_hint`, `next_key_seed`, `next_value_seed`, `variant_seed`, `unit_variant`, `newtype_variant_seed`, `tuple_variant`, `struct_variant`, `into_deserializer`, `serialize_bool`, `serialize_i8`, `serialize_i16`, `serialize_i32`, `serialize_i64`, `serialize_u8`, `serialize_u16`, `serialize_u32`, `serialize_u64`, `serialize_f32`, `serialize_f64`, `serialize_char`, `serialize_str`, `serialize_bytes`, `serialize_unit`, `serialize_unit_struct`, `serialize_unit_variant`, `serialize_newtype_struct`, `serialize_newtype_variant`, `serialize_none`, `serialize_some`, `serialize_seq`, `serialize_tuple`, `serialize_tuple_struct`, `serialize_tuple_variant`, `serialize_map`, `serialize_struct`, `serialize_struct_variant`, `serialize_element`, `end`, `serialize_field`, `serialize_key`, `serialize_value`, `tuple`, `struct_`
 - **Types:** 2/27 matched (target 9)
 - **Missing types:** `Output`, `Index`, `Sealed`, `Err`, `ValueVisitor`, `Error`, `SeqDeserializer`, `MapDeserializer`, `Variant`, `MapEnumDeserializer`, `Deserializer`, `ValueSerializer`, `Ok`, `SerializeSeq`, `SerializeTuple`, `SerializeTupleStruct`, `SerializeTupleVariant`, `SerializeMap`, `SerializeStruct`, `SerializeStructVariant`, `ValueSerializeVec`, `ValueSerializeMap`, `ValueSerializeTupleVariant`, `ValueSerializeStructVariant`, `ValueSerializeVariant`
 
