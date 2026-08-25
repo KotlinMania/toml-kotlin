@@ -4,14 +4,14 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 8/36 (22.2%)
-- **Function parity:** 43/572 matched (target 96) — 7.5%
-- **Class/type parity:** 9/167 matched (target 28) — 5.4%
-- **Combined symbol parity:** 52/739 matched (target 124) — 7.0%
-- **Average inline-code cosine:** 0.32 (function body across 8 matched files)
-- **Average documentation cosine:** 0.53 (doc text across 8 matched files)
+- **Files Present:** 11/36 (30.6%)
+- **Function parity:** 76/563 matched (target 145) — 13.5%
+- **Class/type parity:** 15/167 matched (target 47) — 9.0%
+- **Combined symbol parity:** 91/730 matched (target 192) — 12.5%
+- **Average inline-code cosine:** 0.29 (function body across 11 matched files)
+- **Average documentation cosine:** 0.52 (doc text across 11 matched files)
 - **Cheat-zeroed Files:** 1
-- **Critical Issues:** 6 files with <0.60 function similarity
+- **Critical Issues:** 9 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
@@ -26,13 +26,22 @@ Based on AST analysis, here are the concrete next steps.
 - **Symbol Deficit:** 7 (functions: 6, types: 1)
 - **Action:** Deep review - likely missing major functionality
 
+### 2. parser.devalue
+- **Similarity:** 0.33 (needs 52% improvement)
+- **Dependencies:** 12
+- **Priority Score:** 12063807.0
+- **Functions:** 28/31 matched (target 39)
+- **Missing functions:** `fmt`, `parse`, `parse_recoverable`
+- **Types:** 4/7 matched (target 15)
+- **Missing types:** `DeString`, `Output`, `Sealed`
+- **Symbol Deficit:** 6 (functions: 3, types: 3)
+- **Action:** Deep review - likely missing major functionality
+
 ## Priority 2: Port Missing High-Value Files
 
 Critical missing files (>10 dependencies):
 
-1. **parser.devalue** (12 deps)
-   - Path: `de/parser/devalue.rs`
-   - Essential for 12 other files
+No missing high-value files detected.
 
 ## Detailed Work Items
 
@@ -50,7 +59,29 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing types:** `TomlSink`
 - **Tests:** 8/8 matched
 
-### 2. ser.style
+### 2. parser.devalue
+
+- **Target:** `parser.Devalue`
+- **Similarity:** 0.33
+- **Dependents:** 12
+- **Priority Score:** 12063807.0
+- **Functions:** 28/31 matched (target 39)
+- **Missing functions:** `fmt`, `parse`, `parse_recoverable`
+- **Types:** 4/7 matched (target 15)
+- **Missing types:** `DeString`, `Output`, `Sealed`
+
+### 3. parser.detable
+
+- **Target:** `parser.Detable`
+- **Similarity:** 0.09
+- **Dependents:** 7
+- **Priority Score:** 7020409.0
+- **Functions:** 1/3 matched (target 2)
+- **Missing functions:** `parse`, `parse_recoverable`
+- **Types:** 1/1 matched (target 2)
+- **Missing types:** _none_
+
+### 4. ser.style
 
 - **Target:** `ser.Style`
 - **Similarity:** 1.00
@@ -61,7 +92,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/1 matched
 - **Missing types:** _none_
 
-### 3. table
+### 5. table
 
 - **Target:** `toml.Table`
 - **Similarity:** 0.00
@@ -72,7 +103,18 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/15 matched (target 2)
 - **Missing types:** `Err`, `Visitor`, `Value`, `Error`, `Deserializer`, `TableSerializer`, `Ok`, `SerializeSeq`, `SerializeTuple`, `SerializeTupleStruct`, `SerializeTupleVariant`, `SerializeMap`, `SerializeStruct`, `SerializeStructVariant`
 
-### 4. value
+### 6. parser.dearray
+
+- **Target:** `parser.Dearray`
+- **Similarity:** 0.19
+- **Dependents:** 5
+- **Priority Score:** 5152008.0
+- **Functions:** 4/15 matched (target 8)
+- **Missing functions:** `deref`, `deref_mut`, `as_ref`, `as_mut`, `borrow`, `borrow_mut`, `index`, `into_iter`, `from_iter`, `default`, `fmt`
+- **Types:** 1/5 matched (target 2)
+- **Missing types:** `Target`, `Output`, `Item`, `IntoIter`
+
+### 7. value
 
 - **Target:** `toml.Value`
 - **Similarity:** 0.04
@@ -83,7 +125,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/27 matched (target 9)
 - **Missing types:** `Output`, `Index`, `Sealed`, `Err`, `ValueVisitor`, `Error`, `SeqDeserializer`, `MapDeserializer`, `Variant`, `MapEnumDeserializer`, `Deserializer`, `ValueSerializer`, `Ok`, `SerializeSeq`, `SerializeTuple`, `SerializeTupleStruct`, `SerializeTupleVariant`, `SerializeMap`, `SerializeStruct`, `SerializeStructVariant`, `ValueSerializeVec`, `ValueSerializeMap`, `ValueSerializeTupleVariant`, `ValueSerializeStructVariant`, `ValueSerializeVariant`
 
-### 5. document.buffer
+### 8. document.buffer
 
 - **Target:** `document.Buffer`
 - **Similarity:** 0.70
@@ -94,7 +136,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/2 matched
 - **Missing types:** _none_
 
-### 6. map
+### 9. map
 
 - **Target:** `map.Map`
 - **Similarity:** 0.06
@@ -105,7 +147,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/20 matched (target 2)
 - **Missing types:** `Map`, `MapImpl`, `RandomState`, `Output`, `Entry`, `VacantEntry`, `OccupiedEntry`, `VacantEntryImpl`, `OccupiedEntryImpl`, `Item`, `IntoIter`, `Iter`, `IterImpl`, `IterMut`, `IterMutImpl`, `IntoIterImpl`, `Keys`, `KeysImpl`, `Values`, `ValuesImpl`
 
-### 7. ser.error
+### 10. ser.error
 
 - **Target:** `ser.Error`
 - **Similarity:** 0.27
@@ -116,7 +158,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/2 matched (target 8)
 - **Missing types:** _none_
 
-### 8. lib
+### 11. lib
 
 - **Target:** `toml.Lib [ZERO]`
 - **Similarity:** 0.00

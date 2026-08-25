@@ -4,7 +4,7 @@ package io.github.kotlinmania.toml.map
 /**
  * Represents a TOML key/value type.
  */
-public class TomlMap<K, V>(
+public open class TomlMap<K, V>(
     public var isDotted: Boolean = false,
     public var isImplicit: Boolean = false,
     public var isInline: Boolean = false,
