@@ -5,9 +5,9 @@ Based on AST analysis, here are the concrete next steps.
 ## Summary
 
 - **Files Present:** 11/36 (30.6%)
-- **Function parity:** 76/563 matched (target 145) — 13.5%
+- **Function parity:** 75/563 matched (target 144) — 13.3%
 - **Class/type parity:** 15/167 matched (target 47) — 9.0%
-- **Combined symbol parity:** 91/730 matched (target 192) — 12.5%
+- **Combined symbol parity:** 90/730 matched (target 191) — 12.3%
 - **Average inline-code cosine:** 0.29 (function body across 11 matched files)
 - **Average documentation cosine:** 0.52 (doc text across 11 matched files)
 - **Cheat-zeroed Files:** 1
@@ -27,14 +27,14 @@ Based on AST analysis, here are the concrete next steps.
 - **Action:** Deep review - likely missing major functionality
 
 ### 2. parser.devalue
-- **Similarity:** 0.33 (needs 52% improvement)
+- **Similarity:** 0.30 (needs 55% improvement)
 - **Dependencies:** 12
-- **Priority Score:** 12063807.0
-- **Functions:** 28/31 matched (target 39)
-- **Missing functions:** `fmt`, `parse`, `parse_recoverable`
+- **Priority Score:** 12073807.0
+- **Functions:** 27/31 matched (target 38)
+- **Missing functions:** `radix`, `fmt`, `parse`, `parse_recoverable`
 - **Types:** 4/7 matched (target 15)
 - **Missing types:** `DeString`, `Output`, `Sealed`
-- **Symbol Deficit:** 6 (functions: 3, types: 3)
+- **Symbol Deficit:** 7 (functions: 4, types: 3)
 - **Action:** Deep review - likely missing major functionality
 
 ## Priority 2: Port Missing High-Value Files
@@ -62,11 +62,11 @@ Every matched file is listed below with function and type symbol parity.
 ### 2. parser.devalue
 
 - **Target:** `parser.Devalue`
-- **Similarity:** 0.33
+- **Similarity:** 0.30
 - **Dependents:** 12
-- **Priority Score:** 12063807.0
-- **Functions:** 28/31 matched (target 39)
-- **Missing functions:** `fmt`, `parse`, `parse_recoverable`
+- **Priority Score:** 12073807.0
+- **Functions:** 27/31 matched (target 38)
+- **Missing functions:** `radix`, `fmt`, `parse`, `parse_recoverable`
 - **Types:** 4/7 matched (target 15)
 - **Missing types:** `DeString`, `Output`, `Sealed`
 
