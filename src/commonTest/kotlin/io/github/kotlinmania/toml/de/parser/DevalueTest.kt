@@ -15,7 +15,7 @@ class DevalueTest {
         assertEquals(42L, intDec.toI64())
         assertEquals(42uL, intDec.toU64())
         assertEquals("42", intDec.asStr())
-        assertEquals(10u, intDec.radix())
+        assertEquals(10u, intDec.radix)
         assertEquals("42", intDec.toString())
 
         val intHex = DeInteger("2a", 16u)

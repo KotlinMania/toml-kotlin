@@ -38,8 +38,6 @@ public data class DeInteger(
 
     public fun asStr(): String = inner
 
-    public fun radix(): UInt = radix
-
     override fun toString(): String =
         when (radix) {
             2u -> "0b$inner"
