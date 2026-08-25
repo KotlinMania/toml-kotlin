@@ -4,12 +4,14 @@ package io.github.kotlinmania.toml.de.parser
 /**
  * Type representing a TOML array, payload of the [DeValue.Array] variant.
  */
-public class DeArray(
+public class DeArray internal constructor(
     private val items: MutableList<Spanned<DeValue>> = mutableListOf(),
     private var arrayOfTables: Boolean = false,
 ) : List<Spanned<DeValue>> by items {
 
-    public constructor(elements: Iterable<Spanned<DeValue>>) : this(elements.toMutableList(), false)
+    public constructor() : this(mutableListOf(), false)
+
+    internal constructor(elements: Iterable<Spanned<DeValue>>) : this(elements.toMutableList(), false)
 
     public fun push(value: Spanned<DeValue>) {
         items.add(value)

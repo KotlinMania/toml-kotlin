@@ -12,7 +12,7 @@ public class DeTable(
     isInline: Boolean = false,
 ) : TomlMap<Spanned<String>, Spanned<DeValue>>(isDotted, isImplicit, isInline) {
 
-    public constructor(
+    internal constructor(
         other: Map<Spanned<String>, Spanned<DeValue>>,
         isDotted: Boolean = false,
         isImplicit: Boolean = false,
