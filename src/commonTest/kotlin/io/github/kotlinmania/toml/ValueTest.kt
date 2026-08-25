@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 class ValueTest {
     @Test
     fun testStringValue() {
-        val v = Value.String("hello")
+        val v = Value.Str("hello")
         assertTrue(v.isString)
         assertFalse(v.isInteger)
         assertEquals("hello", v.asString())
@@ -69,11 +69,11 @@ class ValueTest {
 
     @Test
     fun testTableValue() {
-        val table = tomlTableOf("key1" to Value.String("val1"), "key2" to Value.Integer(42L))
+        val table = tomlTableOf("key1" to Value.Str("val1"), "key2" to Value.Integer(42L))
         val v = Value.Table(table)
 
         assertTrue(v.isTable)
-        assertEquals(Value.String("val1"), v["key1"])
+        assertEquals(Value.Str("val1"), v["key1"])
         assertEquals(Value.Integer(42L), v["key2"])
         assertNull(v["nonexistent"])
         assertEquals("table", v.typeStr())
@@ -83,7 +83,7 @@ class ValueTest {
     fun testSameType() {
         val v1 = Value.Integer(10L)
         val v2 = Value.Integer(20L)
-        val v3 = Value.String("10")
+        val v3 = Value.Str("10")
 
         assertTrue(v1.sameType(v2))
         assertFalse(v1.sameType(v3))
@@ -91,7 +91,7 @@ class ValueTest {
 
     @Test
     fun testFactoryMethods() {
-        assertEquals(Value.String("test"), Value.from("test"))
+        assertEquals(Value.Str("test"), Value.from("test"))
         assertEquals(Value.Integer(42L), Value.from(42L))
         assertEquals(Value.Integer(42L), Value.from(42))
         assertEquals(Value.Float(1.5), Value.from(1.5))

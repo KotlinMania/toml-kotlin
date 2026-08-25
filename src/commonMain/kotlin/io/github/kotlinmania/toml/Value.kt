@@ -6,7 +6,7 @@ package io.github.kotlinmania.toml
  */
 public sealed class Value {
     /** Represents a TOML string */
-    public data class String(
+    public data class Str(
         public val value: kotlin.String,
     ) : Value() {
         override fun toString(): kotlin.String = "\"$value\""
@@ -75,10 +75,16 @@ public sealed class Value {
     public val isBoolean: kotlin.Boolean get() = this is Boolean
 
     /** Extracts the string of this value if it is a string. */
-    public fun asString(): kotlin.String? = (this as? String)?.value
+    public fun asString(): kotlin.String? = (this as? Str)?.value
+
+    /** Extracts the string of this value if it is a string. */
+    public fun asStr(): kotlin.String? = (this as? Str)?.value
 
     /** Tests if this value is a string. */
-    public val isString: kotlin.Boolean get() = this is String
+    public val isString: kotlin.Boolean get() = this is Str
+
+    /** Tests if this value is a string. */
+    public val isStr: kotlin.Boolean get() = this is Str
 
     /** Extracts the datetime value if it is a datetime. */
     public fun asDatetime(): kotlin.String? = (this as? Datetime)?.value
@@ -104,7 +110,7 @@ public sealed class Value {
     /** Returns a human-readable representation of the type of this value. */
     public fun typeStr(): kotlin.String =
         when (this) {
-            is String -> "string"
+            is Str -> "string"
             is Integer -> "integer"
             is Float -> "float"
             is Boolean -> "boolean"
@@ -120,7 +126,7 @@ public sealed class Value {
     public operator fun get(index: Int): Value? = (this as? Array)?.value?.getOrNull(index)
 
     public companion object {
-        public fun from(value: kotlin.String): Value = String(value)
+        public fun from(value: kotlin.String): Value = Str(value)
 
         public fun from(value: Long): Value = Integer(value)
 

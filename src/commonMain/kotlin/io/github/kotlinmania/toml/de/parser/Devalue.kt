@@ -79,7 +79,7 @@ public data class DeFloat(
  * Representation of a TOML value for deserialization.
  */
 public sealed class DeValue {
-    public data class String(public val value: kotlin.String) : DeValue()
+    public data class Str(public val value: kotlin.String) : DeValue()
     public data class Integer(public val value: DeInteger) : DeValue()
     public data class Float(public val value: DeFloat) : DeValue()
     public data class Boolean(public val value: kotlin.Boolean) : DeValue()
@@ -119,11 +119,11 @@ public sealed class DeValue {
 
     public val isBoolVal: kotlin.Boolean get() = this is Boolean
 
-    public fun asStr(): kotlin.String? = (this as? String)?.value
+    public fun asStr(): kotlin.String? = (this as? Str)?.value
 
-    public fun isStr(): kotlin.Boolean = this is String
+    public fun isStr(): kotlin.Boolean = this is Str
 
-    public val isStrVal: kotlin.Boolean get() = this is String
+    public val isStrVal: kotlin.Boolean get() = this is Str
 
     public fun asDatetime(): kotlin.String? = (this as? Datetime)?.value
 
@@ -151,7 +151,7 @@ public sealed class DeValue {
 
     public fun typeStr(): kotlin.String =
         when (this) {
-            is String -> "string"
+            is Str -> "string"
             is Integer -> "integer"
             is Float -> "float"
             is Boolean -> "boolean"

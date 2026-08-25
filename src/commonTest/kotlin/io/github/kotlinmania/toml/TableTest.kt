@@ -10,18 +10,18 @@ class TableTest {
     fun testTableCreation() {
         val table =
             tomlTableOf(
-                "title" to Value.String("TOML Example"),
+                "title" to Value.Str("TOML Example"),
                 "owner" to
                     Value.Table(
                         tomlTableOf(
-                            "name" to Value.String("Tom Preston-Werner"),
+                            "name" to Value.Str("Tom Preston-Werner"),
                         ),
                     ),
             )
 
         assertEquals(2, table.size)
-        assertEquals(Value.String("TOML Example"), table["title"])
+        assertEquals(Value.Str("TOML Example"), table["title"])
         assertTrue(table["owner"]?.isTable == true)
-        assertEquals(Value.String("Tom Preston-Werner"), table["owner"]?.get("name"))
+        assertEquals(Value.Str("Tom Preston-Werner"), table["owner"]?.get("name"))
     }
 }

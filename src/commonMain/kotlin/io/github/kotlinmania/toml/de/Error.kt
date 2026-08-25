@@ -13,12 +13,29 @@ package io.github.kotlinmania.toml.de
  */
 
 /**
+ * A span represented as a start and end index.
+ */
+public data class TomlSpan(
+    public val start: Int,
+    public val end: Int,
+) {
+    public val length: Int get() = (end - start).coerceAtLeast(0)
+
+    public fun toRange(): IntRange = start until end
+
+    public companion object {
+        public fun of(start: Int, end: Int): TomlSpan = TomlSpan(start, end)
+        public fun fromRange(range: IntRange): TomlSpan = TomlSpan(range.first, range.last + 1)
+    }
+}
+
+/**
  * Errors that can occur when deserializing a type.
  */
 public class Error(
     override val message: String,
     private var input: String? = null,
-    private var span: IntRange? = null,
+    private var span: TomlSpan? = null,
 ) : Exception(message) {
     private val keys: MutableList<String> = mutableListOf()
 
@@ -27,10 +44,14 @@ public class Error(
     }
 
     /** The start/end index into the original document where the error occurred */
-    public fun span(): IntRange? = span
+    public fun span(): TomlSpan? = span
 
-    public fun setSpan(span: IntRange?) {
+    public fun setSpan(span: TomlSpan?) {
         this.span = span
+    }
+
+    public fun setSpan(range: IntRange?) {
+        this.span = range?.let { TomlSpan.fromRange(it) }
     }
 
     /** Provide the encoded TOML the error applies to */
@@ -45,14 +66,14 @@ public class Error(
             val currentSpan = span
             if (currentInput != null && currentSpan != null) {
                 context = true
-                val (line, column) = translatePosition(currentInput, currentSpan.first)
+                val (line, column) = translatePosition(currentInput, currentSpan.start)
                 val lineNum = line + 1
                 val colNum = column + 1
                 val gutter = lineNum.toString().length
                 val lines = currentInput.split('\n')
                 val content = lines.getOrNull(line) ?: ""
                 val highlightLen =
-                    (currentSpan.last - currentSpan.first + 1)
+                    currentSpan.length
                         .coerceAtMost((content.length - column).coerceAtLeast(0))
 
                 appendLine("TOML parse error at line $lineNum, column $colNum")
@@ -104,13 +125,18 @@ public class Error(
     public companion object {
         public fun custom(
             msg: CharSequence,
-            span: IntRange? = null,
+            span: TomlSpan? = null,
         ): Error =
             Error(
                 message = msg.toString(),
                 input = null,
                 span = span,
             )
+
+        public fun custom(
+            msg: CharSequence,
+            span: IntRange,
+        ): Error = custom(msg, TomlSpan.fromRange(span))
 
         internal fun translatePosition(
             input: String,

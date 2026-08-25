@@ -41,7 +41,7 @@ class DevalueTest {
 
     @Test
     fun testDeValueVariants() {
-        val strVal = DeValue.String("hello")
+        val strVal = DeValue.Str("hello")
         assertTrue(strVal.isStr())
         assertEquals("hello", strVal.asStr())
         assertEquals("string", strVal.typeStr())
@@ -86,8 +86,8 @@ class DevalueTest {
 
     @Test
     fun testSameType() {
-        val s1 = DeValue.String("a")
-        val s2 = DeValue.String("b")
+        val s1 = DeValue.Str("a")
+        val s2 = DeValue.Str("b")
         val i1 = DeValue.Integer(DeInteger("1", 10u))
         assertTrue(s1.sameType(s2))
         assertFalse(s1.sameType(i1))

@@ -13,10 +13,10 @@ class DearrayTest {
         assertEquals(0, arr.size)
         assertFalse(arr.isArrayOfTables())
 
-        arr.push(Spanned(DeValue.String("item1")))
-        arr.push(Spanned(DeValue.String("item2")))
+        arr.push(Spanned(DeValue.Str("item1")))
+        arr.push(Spanned(DeValue.Str("item2")))
         assertEquals(2, arr.size)
-        assertEquals("item1", (arr[0].value as DeValue.String).value)
+        assertEquals("item1", (arr[0].value as DeValue.Str).value)
 
         arr.setArrayOfTables(true)
         assertTrue(arr.isArrayOfTables())
