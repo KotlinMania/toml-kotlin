@@ -1,4 +1,4 @@
-// port-lint: source toml/src/ser/style.rs
+// port-lint: source ser/style.rs
 package io.github.kotlinmania.toml.ser
 
 /*

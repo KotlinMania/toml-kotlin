@@ -4,12 +4,12 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 28/39 (71.8%)
-- **Function parity:** 106/602 matched (target 261) — 17.6%
-- **Class/type parity:** 28/194 matched (target 73) — 14.4%
-- **Combined symbol parity:** 134/796 matched (target 334) — 16.8%
-- **Average inline-code cosine:** 0.14 (function body across 23 matched files)
-- **Average documentation cosine:** 0.29 (doc text across 23 matched files)
+- **Files Present:** 28/36 (77.8%)
+- **Function parity:** 106/598 matched (target 261) — 17.7%
+- **Class/type parity:** 28/189 matched (target 73) — 14.8%
+- **Combined symbol parity:** 134/787 matched (target 334) — 17.0%
+- **Average inline-code cosine:** 0.13 (function body across 24 matched files)
+- **Average documentation cosine:** 0.30 (doc text across 24 matched files)
 - **Cheat-zeroed Files:** 8
 - **Critical Issues:** 26 files with <0.60 function similarity
 
@@ -92,7 +92,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/1 matched
 - **Missing types:** _none_
 
-### 5. toml.table
+### 5. table
 
 - **Target:** `toml.Table`
 - **Similarity:** 0.01
@@ -114,7 +114,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/5 matched (target 2)
 - **Missing types:** `Target`, `Output`, `Item`, `IntoIter`
 
-### 7. toml.value
+### 7. value
 
 - **Target:** `toml.Value`
 - **Similarity:** 0.06
@@ -136,7 +136,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/2 matched
 - **Missing types:** _none_
 
-### 9. toml.map
+### 9. map
 
 - **Target:** `map.Map [ZERO]`
 - **Similarity:** 0.00
@@ -267,8 +267,8 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `into_table_de`, `from`, `deserialize_any`, `deserialize_option`, `deserialize_newtype_struct`, `deserialize_struct`, `deserialize_enum`, `into_deserializer`
 - **Types:** 1/2 matched (target 3)
 - **Missing types:** `Error`
-- **Provenance warning:** port-lint provenance header matched only by basename: `tests:toml/src/de/mod.rs` vs expected `de/deserializer/mod.rs`
-- **Proposed provenance header:** `// port-lint: tests de/deserializer/mod.rs` (current: `// port-lint: tests toml/src/de/mod.rs`)
+- **Provenance warning:** port-lint provenance header matched only by basename: `tests:de/mod.rs` vs expected `de/deserializer/mod.rs`
+- **Proposed provenance header:** `// port-lint: tests de/deserializer/mod.rs` (current: `// port-lint: tests de/mod.rs`)
 - **Lint issues:** 1
 
 ### 21. parser.array
@@ -337,9 +337,9 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/0 matched (target 1)
 - **Missing types:** _none_
 
-### 27. toml.lib
+### 27. lib
 
-- **Target:** `toml.Lib [STUB]`
+- **Target:** `toml.Lib [ZERO]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10110.0
@@ -379,6 +379,6 @@ do not treat them as the next implementation target by default.
 
 | Source | Expected target | Deps | Source path | Expected path |
 |--------|-----------------|------|-------------|---------------|
-| `de.mod` | `toml.src.de.Mod` | 0 | `toml/src/de/mod.rs` | `toml/src/de/Mod.kt` |
-| `parser.mod` | `toml.src.de.parser.Mod` | 0 | `toml/src/de/parser/mod.rs` | `toml/src/de/parser/Mod.kt` |
+| `de.mod` | `de.Mod` | 0 | `de/mod.rs` | `de/Mod.kt` |
+| `parser.mod` | `de.parser.Mod` | 0 | `de/parser/mod.rs` | `de/parser/Mod.kt` |
 

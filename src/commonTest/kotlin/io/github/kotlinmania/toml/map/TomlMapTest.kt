@@ -1,4 +1,4 @@
-// port-lint: tests toml/src/map.rs
+// port-lint: tests map.rs
 package io.github.kotlinmania.toml.map
 
 import kotlin.test.Test
