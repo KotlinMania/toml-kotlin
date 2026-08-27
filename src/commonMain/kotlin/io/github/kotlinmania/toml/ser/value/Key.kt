@@ -1,4 +1,4 @@
-// port-lint: source ser/value/key.rs
+// port-lint: source toml/src/ser/value/key.rs
 package io.github.kotlinmania.toml.ser.value
 
 import io.github.kotlinmania.toml.ser.Error

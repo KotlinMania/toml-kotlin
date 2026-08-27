@@ -1,4 +1,4 @@
-// port-lint: source lib.rs
+// port-lint: source toml/src/lib.rs
 package io.github.kotlinmania.toml
 
 import io.github.kotlinmania.toml.de.Deserializer

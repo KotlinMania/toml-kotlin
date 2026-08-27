@@ -1,4 +1,4 @@
-// port-lint: tests de/mod.rs
+// port-lint: tests toml/src/de/mod.rs
 package io.github.kotlinmania.toml.de
 
 import io.github.kotlinmania.toml.Table
