@@ -3,19 +3,16 @@ package io.github.kotlinmania.toml.de
 
 import io.github.kotlinmania.toml.Table
 import io.github.kotlinmania.toml.Value
-import io.github.kotlinmania.toml.de.parser.DocumentParser
-import io.github.kotlinmania.toml.de.parser.KeyParser
-import io.github.kotlinmania.toml.de.parser.ValueParser
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 class DeserializerTest {
-
     @Test
     fun testParseSimpleDocument() {
-        val toml = """
+        val toml =
+            """
             title = "TOML Example"
             count = 42
             rate = 3.14
@@ -24,7 +21,7 @@ class DeserializerTest {
             [owner]
             name = "Tom"
             dob = 1979-05-27T07:32:00Z
-        """.trimIndent()
+            """.trimIndent()
 
         val table = fromStr(toml)
         assertEquals(Value.Str("TOML Example"), table["title"])
@@ -41,10 +38,11 @@ class DeserializerTest {
 
     @Test
     fun testParseDottedKeys() {
-        val toml = """
+        val toml =
+            """
             fruit.apple.color = "red"
             fruit.apple.taste.sweet = true
-        """.trimIndent()
+            """.trimIndent()
 
         val table = fromStr(toml)
         val fruit = table["fruit"]
@@ -59,7 +57,8 @@ class DeserializerTest {
 
     @Test
     fun testParseArrayOfTables() {
-        val toml = """
+        val toml =
+            """
             [[products]]
             name = "Hammer"
             sku = 738594937
@@ -68,7 +67,7 @@ class DeserializerTest {
             name = "Nail"
             sku = 284758393
             color = "gray"
-        """.trimIndent()
+            """.trimIndent()
 
         val table = fromStr(toml)
         val products = table["products"]
@@ -87,10 +86,11 @@ class DeserializerTest {
 
     @Test
     fun testParseInlineTableAndArray() {
-        val toml = """
+        val toml =
+            """
             point = { x = 1, y = 2 }
             numbers = [ 1, 2, 3 ]
-        """.trimIndent()
+            """.trimIndent()
 
         val table = fromStr(toml)
         val point = table["point"]

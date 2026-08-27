@@ -5,7 +5,6 @@ package io.github.kotlinmania.toml.de.parser
  * Parsers for TOML arrays.
  */
 public object ArrayParser {
-
     public fun parseArray(raw: String): DeArray {
         val array = DeArray()
         var s = raw.trim()

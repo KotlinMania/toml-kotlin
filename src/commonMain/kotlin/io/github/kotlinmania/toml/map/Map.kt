@@ -83,13 +83,12 @@ public open class TomlMap<K, V>(
         }
     }
 
-    public fun entry(key: K): Entry<K, V> {
-        return if (containsKey(key)) {
+    public fun entry(key: K): Entry<K, V> =
+        if (containsKey(key)) {
             Entry.Occupied(OccupiedEntry(this, key))
         } else {
             Entry.Vacant(VacantEntry(this, key))
         }
-    }
 
     public fun clear() {
         underlying.clear()
@@ -120,7 +119,9 @@ public open class TomlMap<K, V>(
     public companion object {
         public fun <K, V> new(): TomlMap<K, V> = TomlMap()
 
-        public fun <K, V> withCapacity(@Suppress("UNUSED_PARAMETER") capacity: Int): TomlMap<K, V> = TomlMap()
+        public fun <K, V> withCapacity(
+            @Suppress("UNUSED_PARAMETER") capacity: Int,
+        ): TomlMap<K, V> = TomlMap()
 
         public fun <K, V> from(pairs: Iterable<Pair<K, V>>): TomlMap<K, V> {
             val map = TomlMap<K, V>()
@@ -148,13 +149,17 @@ public sealed class Entry<K, V> {
             is Occupied -> intoMut()
         }
 
-    public class Vacant<K, V>(public val entry: VacantEntry<K, V>) : Entry<K, V>() {
+    public class Vacant<K, V>(
+        public val entry: VacantEntry<K, V>,
+    ) : Entry<K, V>() {
         override val key: K get() = entry.key()
 
         public fun insert(value: V): V = entry.insert(value)
     }
 
-    public class Occupied<K, V>(public val entry: OccupiedEntry<K, V>) : Entry<K, V>() {
+    public class Occupied<K, V>(
+        public val entry: OccupiedEntry<K, V>,
+    ) : Entry<K, V>() {
         override val key: K get() = entry.key()
 
         public fun get(): V = entry.get()
@@ -204,7 +209,5 @@ public class OccupiedEntry<K, V>(
         return old ?: value
     }
 
-    public fun remove(): V {
-        return map.remove(keyVal) ?: error("Occupied entry missing key")
-    }
+    public fun remove(): V = map.remove(keyVal) ?: error("Occupied entry missing key")
 }

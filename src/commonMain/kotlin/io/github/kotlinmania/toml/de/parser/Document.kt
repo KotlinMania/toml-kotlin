@@ -5,7 +5,6 @@ package io.github.kotlinmania.toml.de.parser
  * Top-level document parser for TOML documents.
  */
 public object DocumentParser {
-
     public fun parseDocument(input: String): DeTable {
         val root = DeTable()
         var currentTable = root
@@ -95,10 +94,15 @@ public object DocumentParser {
                 if (c == '"' || c == '\'') {
                     inQuotes = true
                     quoteChar = c
-                } else if (c == '[') brackets++
-                else if (c == ']') { if (brackets > 0) brackets-- }
-                else if (c == '{') braces++
-                else if (c == '}') { if (braces > 0) braces-- }
+                } else if (c == '[') {
+                    brackets++
+                } else if (c == ']') {
+                    if (brackets > 0) brackets--
+                } else if (c == '{') {
+                    braces++
+                } else if (c == '}') {
+                    if (braces > 0) braces--
+                }
             }
             i++
         }
@@ -157,15 +161,20 @@ public object DocumentParser {
     private fun navigateStandardTable(root: DeTable, path: List<String>): DeTable {
         var current = root
         for (k in path) {
-            val existing = current.entries.firstOrNull { it.key.value == k }?.value?.value
-            val nextTable = when (existing) {
-                is DeValue.Table -> existing.value
-                else -> {
-                    val newTable = DeTable()
-                    current[Spanned(k)] = Spanned(DeValue.Table(newTable))
-                    newTable
+            val existing =
+                current.entries
+                    .firstOrNull { it.key.value == k }
+                    ?.value
+                    ?.value
+            val nextTable =
+                when (existing) {
+                    is DeValue.Table -> existing.value
+                    else -> {
+                        val newTable = DeTable()
+                        current[Spanned(k)] = Spanned(DeValue.Table(newTable))
+                        newTable
+                    }
                 }
-            }
             current = nextTable
         }
         return current
@@ -175,37 +184,49 @@ public object DocumentParser {
         var current = root
         for (i in 0 until path.size - 1) {
             val k = path[i]
-            val existing = current.entries.firstOrNull { it.key.value == k }?.value?.value
-            val nextTable = when (existing) {
-                is DeValue.Table -> existing.value
-                is DeValue.Array -> {
-                    val last = existing.value.lastOrNull()?.value
-                    if (last is DeValue.Table) last.value else {
-                        val t = DeTable()
-                        existing.value.push(Spanned(DeValue.Table(t)))
-                        t
+            val existing =
+                current.entries
+                    .firstOrNull { it.key.value == k }
+                    ?.value
+                    ?.value
+            val nextTable =
+                when (existing) {
+                    is DeValue.Table -> existing.value
+                    is DeValue.Array -> {
+                        val last = existing.value.lastOrNull()?.value
+                        if (last is DeValue.Table) {
+                            last.value
+                        } else {
+                            val t = DeTable()
+                            existing.value.push(Spanned(DeValue.Table(t)))
+                            t
+                        }
+                    }
+                    else -> {
+                        val newTable = DeTable()
+                        current[Spanned(k)] = Spanned(DeValue.Table(newTable))
+                        newTable
                     }
                 }
-                else -> {
-                    val newTable = DeTable()
-                    current[Spanned(k)] = Spanned(DeValue.Table(newTable))
-                    newTable
-                }
-            }
             current = nextTable
         }
 
         val lastKey = path.last()
-        val existingArray = current.entries.firstOrNull { it.key.value == lastKey }?.value?.value
-        val array = when (existingArray) {
-            is DeValue.Array -> existingArray.value
-            else -> {
-                val newArray = DeArray()
-                newArray.setArrayOfTables(true)
-                current[Spanned(lastKey)] = Spanned(DeValue.Array(newArray))
-                newArray
+        val existingArray =
+            current.entries
+                .firstOrNull { it.key.value == lastKey }
+                ?.value
+                ?.value
+        val array =
+            when (existingArray) {
+                is DeValue.Array -> existingArray.value
+                else -> {
+                    val newArray = DeArray()
+                    newArray.setArrayOfTables(true)
+                    current[Spanned(lastKey)] = Spanned(DeValue.Array(newArray))
+                    newArray
+                }
             }
-        }
         val table = DeTable()
         array.push(Spanned(DeValue.Table(table)))
         return table
@@ -215,15 +236,20 @@ public object DocumentParser {
         var current = target
         for (i in 0 until keys.size - 1) {
             val k = keys[i]
-            val existing = current.entries.firstOrNull { it.key.value == k }?.value?.value
-            val nextTable = when (existing) {
-                is DeValue.Table -> existing.value
-                else -> {
-                    val newTable = DeTable(isDotted = true)
-                    current[Spanned(k)] = Spanned(DeValue.Table(newTable))
-                    newTable
+            val existing =
+                current.entries
+                    .firstOrNull { it.key.value == k }
+                    ?.value
+                    ?.value
+            val nextTable =
+                when (existing) {
+                    is DeValue.Table -> existing.value
+                    else -> {
+                        val newTable = DeTable(isDotted = true)
+                        current[Spanned(k)] = Spanned(DeValue.Table(newTable))
+                        newTable
+                    }
                 }
-            }
             current = nextTable
         }
         val lastKey = keys.last()

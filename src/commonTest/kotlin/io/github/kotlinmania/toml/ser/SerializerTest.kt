@@ -10,15 +10,15 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class SerializerTest {
-
     @Test
     fun testSerializeSimpleTable() {
-        val table = tableOf(
-            "title" to Value.Str("TOML Example"),
-            "count" to Value.Integer(42L),
-            "rate" to Value.Float(3.14),
-            "enabled" to Value.Boolean(true),
-        )
+        val table =
+            tableOf(
+                "title" to Value.Str("TOML Example"),
+                "count" to Value.Integer(42L),
+                "rate" to Value.Float(3.14),
+                "enabled" to Value.Boolean(true),
+            )
 
         val output = toString(table)
         assertTrue(output.contains("title = \"TOML Example\""))
@@ -35,15 +35,17 @@ class SerializerTest {
 
     @Test
     fun testSerializeChildTable() {
-        val table = tableOf(
-            "name" to Value.Str("root"),
-            "database" to Value.Table(
-                tableOf(
-                    "server" to Value.Str("192.168.1.1"),
-                    "port" to Value.Integer(8000L),
-                ),
-            ),
-        )
+        val table =
+            tableOf(
+                "name" to Value.Str("root"),
+                "database" to
+                    Value.Table(
+                        tableOf(
+                            "server" to Value.Str("192.168.1.1"),
+                            "port" to Value.Integer(8000L),
+                        ),
+                    ),
+            )
 
         val output = toString(table)
         assertTrue(output.contains("[database]"))
@@ -58,14 +60,16 @@ class SerializerTest {
 
     @Test
     fun testSerializeArrayOfTables() {
-        val table = tableOf(
-            "products" to Value.Array(
-                listOf(
-                    Value.Table(tableOf("name" to Value.Str("Hammer"), "sku" to Value.Integer(1L))),
-                    Value.Table(tableOf("name" to Value.Str("Nail"), "sku" to Value.Integer(2L))),
-                ),
-            ),
-        )
+        val table =
+            tableOf(
+                "products" to
+                    Value.Array(
+                        listOf(
+                            Value.Table(tableOf("name" to Value.Str("Hammer"), "sku" to Value.Integer(1L))),
+                            Value.Table(tableOf("name" to Value.Str("Nail"), "sku" to Value.Integer(2L))),
+                        ),
+                    ),
+            )
 
         val output = toString(table)
         assertTrue(output.contains("[[products]]"))

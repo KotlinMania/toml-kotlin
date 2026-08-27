@@ -11,7 +11,6 @@ public class DeTable(
     isImplicit: Boolean = false,
     isInline: Boolean = false,
 ) : TomlMap<Spanned<String>, Spanned<DeValue>>(isDotted, isImplicit, isInline) {
-
     internal constructor(
         other: Map<Spanned<String>, Spanned<DeValue>>,
         isDotted: Boolean = false,
@@ -29,11 +28,12 @@ public class DeTable(
     }
 
     public fun toTable(): io.github.kotlinmania.toml.Table {
-        val table = io.github.kotlinmania.toml.Table(
-            isDotted = isDotted,
-            isImplicit = isImplicit,
-            isInline = isInline,
-        )
+        val table =
+            io.github.kotlinmania.toml.Table(
+                isDotted = isDotted,
+                isImplicit = isImplicit,
+                isInline = isInline,
+            )
         for ((k, v) in entries) {
             table[k.value] = v.value.toValue()
         }
