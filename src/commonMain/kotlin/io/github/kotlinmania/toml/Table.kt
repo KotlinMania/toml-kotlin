@@ -54,14 +54,20 @@ public fun tomlTableOf(vararg pairs: Pair<String, Value>): Table = tableOf(*pair
 /**
  * Parses a string into a TOML Table.
  */
-public fun parseTable(s: String): Table = io.github.kotlinmania.toml.de.fromStr(s)
+public fun parseTable(s: String): Table =
+    io.github.kotlinmania.toml.de
+        .fromStr(s)
 
 /**
  * Serializes a TOML Table to a String.
  */
-public fun Table.toTomlString(): String = io.github.kotlinmania.toml.ser.toString(this)
+public fun Table.toTomlString(): String =
+    io.github.kotlinmania.toml.ser
+        .toString(this)
 
 /**
  * Serializes a TOML Table to a pretty String.
  */
-public fun Table.toTomlStringPretty(): String = io.github.kotlinmania.toml.ser.toStringPretty(this)
+public fun Table.toTomlStringPretty(): String =
+    io.github.kotlinmania.toml.ser
+        .toStringPretty(this)

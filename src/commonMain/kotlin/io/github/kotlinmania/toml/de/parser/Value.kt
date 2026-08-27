@@ -5,7 +5,6 @@ package io.github.kotlinmania.toml.de.parser
  * Parsers for TOML values including scalar values, strings, numbers, booleans, and datetimes.
  */
 public object ValueParser {
-
     public fun parseScalar(raw: String): DeValue {
         val s = raw.trim()
         if (s == "true") return DeValue.Boolean(true)
@@ -14,12 +13,26 @@ public object ValueParser {
         // String
         if (s.startsWith("\"\"\"") && s.endsWith("\"\"\"") && s.length >= 6) {
             val content = s.substring(3, s.length - 3)
-            val trimmed = if (content.startsWith("\n")) content.substring(1) else if (content.startsWith("\r\n")) content.substring(2) else content
+            val trimmed =
+                if (content.startsWith("\n")) {
+                    content.substring(1)
+                } else if (content.startsWith("\r\n")) {
+                    content.substring(2)
+                } else {
+                    content
+                }
             return DeValue.Str(KeyParser.decodeBasicString(trimmed))
         }
         if (s.startsWith("'''") && s.endsWith("'''") && s.length >= 6) {
             val content = s.substring(3, s.length - 3)
-            val trimmed = if (content.startsWith("\n")) content.substring(1) else if (content.startsWith("\r\n")) content.substring(2) else content
+            val trimmed =
+                if (content.startsWith("\n")) {
+                    content.substring(1)
+                } else if (content.startsWith("\r\n")) {
+                    content.substring(2)
+                } else {
+                    content
+                }
             return DeValue.Str(trimmed)
         }
         if (s.startsWith("\"") && s.endsWith("\"") && s.length >= 2) {

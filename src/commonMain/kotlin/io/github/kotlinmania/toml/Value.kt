@@ -53,10 +53,17 @@ public sealed class Value {
 
     /** Represents a TOML table */
     public data class Table(
-        public val value: io.github.kotlinmania.toml.Table = io.github.kotlinmania.toml.Table(),
+        public val value: io.github.kotlinmania.toml.Table =
+            io.github.kotlinmania.toml
+                .Table(),
     ) : Value() {
         public constructor(map: Map<kotlin.String, Value>) : this(
-            if (map is io.github.kotlinmania.toml.Table) map else io.github.kotlinmania.toml.Table(map)
+            if (map is io.github.kotlinmania.toml.Table) {
+                map
+            } else {
+                io.github.kotlinmania.toml
+                    .Table(map)
+            },
         )
 
         override fun toString(): kotlin.String = value.toString()

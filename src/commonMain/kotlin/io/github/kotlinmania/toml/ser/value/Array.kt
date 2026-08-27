@@ -8,7 +8,6 @@ import io.github.kotlinmania.toml.ser.Style
  * Serializes TOML array values.
  */
 public object ArrayValueSerializer {
-
     public fun serializeArray(elements: List<Value>, style: Style = Style.COMPACT): String =
         buildString {
             if (elements.isEmpty()) {

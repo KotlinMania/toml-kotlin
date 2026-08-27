@@ -79,13 +79,33 @@ public data class DeFloat(
  * Representation of a TOML value for deserialization.
  */
 public sealed class DeValue {
-    public data class Str(public val value: kotlin.String) : DeValue()
-    public data class Integer(public val value: DeInteger) : DeValue()
-    public data class Float(public val value: DeFloat) : DeValue()
-    public data class Boolean(public val value: kotlin.Boolean) : DeValue()
-    public data class Datetime(public val value: kotlin.String) : DeValue()
-    public data class Array(public val value: DeArray) : DeValue()
-    public data class Table(public val value: DeTable) : DeValue()
+    public data class Str(
+        public val value: kotlin.String,
+    ) : DeValue()
+
+    public data class Integer(
+        public val value: DeInteger,
+    ) : DeValue()
+
+    public data class Float(
+        public val value: DeFloat,
+    ) : DeValue()
+
+    public data class Boolean(
+        public val value: kotlin.Boolean,
+    ) : DeValue()
+
+    public data class Datetime(
+        public val value: kotlin.String,
+    ) : DeValue()
+
+    public data class Array(
+        public val value: DeArray,
+    ) : DeValue()
+
+    public data class Table(
+        public val value: DeTable,
+    ) : DeValue()
 
     public fun makeOwned() {
         when (this) {
@@ -162,13 +182,27 @@ public sealed class DeValue {
 
     public fun toValue(): io.github.kotlinmania.toml.Value =
         when (this) {
-            is Str -> io.github.kotlinmania.toml.Value.Str(value)
-            is Integer -> io.github.kotlinmania.toml.Value.Integer(value.toI64() ?: 0L)
-            is Float -> io.github.kotlinmania.toml.Value.Float(value.toF64() ?: 0.0)
-            is Boolean -> io.github.kotlinmania.toml.Value.Boolean(value)
-            is Datetime -> io.github.kotlinmania.toml.Value.Datetime(value)
-            is Array -> io.github.kotlinmania.toml.Value.Array(value.toArray())
-            is Table -> io.github.kotlinmania.toml.Value.Table(value.toTable())
+            is Str ->
+                io.github.kotlinmania.toml.Value
+                    .Str(value)
+            is Integer ->
+                io.github.kotlinmania.toml.Value
+                    .Integer(value.toI64() ?: 0L)
+            is Float ->
+                io.github.kotlinmania.toml.Value
+                    .Float(value.toF64() ?: 0.0)
+            is Boolean ->
+                io.github.kotlinmania.toml.Value
+                    .Boolean(value)
+            is Datetime ->
+                io.github.kotlinmania.toml.Value
+                    .Datetime(value)
+            is Array ->
+                io.github.kotlinmania.toml.Value
+                    .Array(value.toArray())
+            is Table ->
+                io.github.kotlinmania.toml.Value
+                    .Table(value.toTable())
         }
 }
 
@@ -179,7 +213,9 @@ public interface Index {
     public fun index(value: DeValue): Spanned<DeValue>?
 }
 
-public class IntIndex(public val index: Int) : Index {
+public class IntIndex(
+    public val index: Int,
+) : Index {
     override fun index(value: DeValue): Spanned<DeValue>? =
         when (value) {
             is DeValue.Array -> value.value.getOrNull(index)
@@ -187,11 +223,15 @@ public class IntIndex(public val index: Int) : Index {
         }
 }
 
-public class StringIndex(public val key: String) : Index {
+public class StringIndex(
+    public val key: String,
+) : Index {
     override fun index(value: DeValue): Spanned<DeValue>? =
         when (value) {
             is DeValue.Table -> {
-                value.value.entries.firstOrNull { it.key.value == key }?.value
+                value.value.entries
+                    .firstOrNull { it.key.value == key }
+                    ?.value
             }
             else -> null
         }

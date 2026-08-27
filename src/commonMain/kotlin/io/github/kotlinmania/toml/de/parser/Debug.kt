@@ -14,7 +14,9 @@ public class TraceScope(
     public companion object {
         public fun new(text: String): TraceScope = TraceScope(text)
 
-        public fun trace(@Suppress("UNUSED_PARAMETER") text: String) {
+        public fun trace(
+            @Suppress("UNUSED_PARAMETER") text: String,
+        ) {
             // Debug trace logging
         }
     }

@@ -8,7 +8,6 @@ public class DeArray internal constructor(
     private val items: MutableList<Spanned<DeValue>> = mutableListOf(),
     private var arrayOfTables: Boolean = false,
 ) : List<Spanned<DeValue>> by items {
-
     public constructor() : this(mutableListOf(), false)
 
     internal constructor(elements: Iterable<Spanned<DeValue>>) : this(elements.toMutableList(), false)

@@ -21,7 +21,12 @@ internal class SerializeDocumentTable(
             if (strategy == SerializationStrategy.VALUE) {
                 val formattedKey = KeySerializer.formatKey(k)
                 val formattedVal = ValueSerializer.serialize(v, style)
-                table.bodyMut().append(formattedKey).append(" = ").append(formattedVal).append("\n")
+                table
+                    .bodyMut()
+                    .append(formattedKey)
+                    .append(" = ")
+                    .append(formattedVal)
+                    .append("\n")
             }
         }
         buf.push(table)

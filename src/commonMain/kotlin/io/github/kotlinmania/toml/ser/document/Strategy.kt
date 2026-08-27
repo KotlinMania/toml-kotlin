@@ -11,7 +11,8 @@ public enum class SerializationStrategy {
     TABLE,
     ARRAY_OF_TABLES,
     SKIP,
-    UNKNOWN;
+    UNKNOWN,
+    ;
 
     public companion object {
         public fun of(value: Value): SerializationStrategy =

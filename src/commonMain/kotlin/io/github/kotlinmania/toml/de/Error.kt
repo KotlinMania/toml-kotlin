@@ -25,6 +25,7 @@ public data class TomlSpan(
 
     public companion object {
         public fun of(start: Int, end: Int): TomlSpan = TomlSpan(start, end)
+
         public fun fromRange(range: IntRange): TomlSpan = TomlSpan(range.first, range.last + 1)
     }
 }

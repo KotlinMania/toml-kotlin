@@ -8,7 +8,6 @@ import io.github.kotlinmania.toml.ser.Style
  * Serializer for individual TOML values.
  */
 public object ValueSerializer {
-
     public fun serialize(value: Value, style: Style = Style.COMPACT): String =
         when (value) {
             is Value.Str -> serializeString(value.value, style)
@@ -20,9 +19,10 @@ public object ValueSerializer {
             is Value.Table -> MapValueSerializer.serializeInlineTable(value.value, style)
         }
 
-    public fun serializeString(s: String, @Suppress("UNUSED_PARAMETER") style: Style = Style.COMPACT): String {
-        return KeySerializer.quoteKey(s)
-    }
+    public fun serializeString(
+        s: String,
+        @Suppress("UNUSED_PARAMETER") style: Style = Style.COMPACT,
+    ): String = KeySerializer.quoteKey(s)
 
     public fun serializeFloat(f: Double): String =
         when {

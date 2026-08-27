@@ -8,7 +8,6 @@ import io.github.kotlinmania.toml.ser.Style
  * Serializes TOML inline tables and maps.
  */
 public object MapValueSerializer {
-
     public fun serializeInlineTable(entries: Map<String, Value>, style: Style = Style.COMPACT): String =
         buildString {
             if (entries.isEmpty()) {

@@ -5,7 +5,6 @@ package io.github.kotlinmania.toml.de.parser
  * Parsers for TOML inline tables.
  */
 public object InlineTableParser {
-
     public fun parseInlineTable(raw: String): DeTable {
         val table = DeTable(isInline = true)
         var s = raw.trim()
@@ -119,15 +118,20 @@ public object InlineTableParser {
         var current = root
         for (i in 0 until keys.size - 1) {
             val k = keys[i]
-            val existing = current.entries.firstOrNull { it.key.value == k }?.value?.value
-            val nextTable = when (existing) {
-                is DeValue.Table -> existing.value
-                else -> {
-                    val newTable = DeTable(isDotted = true, isInline = true)
-                    current[Spanned(k)] = Spanned(DeValue.Table(newTable))
-                    newTable
+            val existing =
+                current.entries
+                    .firstOrNull { it.key.value == k }
+                    ?.value
+                    ?.value
+            val nextTable =
+                when (existing) {
+                    is DeValue.Table -> existing.value
+                    else -> {
+                        val newTable = DeTable(isDotted = true, isInline = true)
+                        current[Spanned(k)] = Spanned(DeValue.Table(newTable))
+                        newTable
+                    }
                 }
-            }
             current = nextTable
         }
         val lastKey = keys.last()

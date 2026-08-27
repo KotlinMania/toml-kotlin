@@ -1,13 +1,10 @@
 // port-lint: source ser/value/key.rs
 package io.github.kotlinmania.toml.ser.value
 
-import io.github.kotlinmania.toml.ser.Error
-
 /**
  * Serializes keys into valid TOML bare or quoted key strings.
  */
 public object KeySerializer {
-
     public fun isBareKey(key: String): Boolean {
         if (key.isEmpty()) return false
         for (c in key) {
