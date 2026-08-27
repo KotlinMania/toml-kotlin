@@ -27,4 +27,25 @@ public class DeTable(
             v.value.makeOwned()
         }
     }
+
+    public fun toTable(): io.github.kotlinmania.toml.Table {
+        val table = io.github.kotlinmania.toml.Table(
+            isDotted = isDotted,
+            isImplicit = isImplicit,
+            isInline = isInline,
+        )
+        for ((k, v) in entries) {
+            table[k.value] = v.value.toValue()
+        }
+        return table
+    }
+
+    public companion object {
+        public fun parse(raw: String): Spanned<DeTable> {
+            val doc = DocumentParser.parseDocument(raw)
+            return Spanned(doc, 0..raw.length)
+        }
+
+        public fun new(): DeTable = DeTable()
+    }
 }
