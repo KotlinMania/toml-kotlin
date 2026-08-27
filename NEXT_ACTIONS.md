@@ -4,14 +4,14 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 28/36 (77.8%)
-- **Function parity:** 106/598 matched (target 261) — 17.7%
-- **Class/type parity:** 28/189 matched (target 73) — 14.8%
-- **Combined symbol parity:** 134/787 matched (target 334) — 17.0%
-- **Average inline-code cosine:** 0.13 (function body across 24 matched files)
-- **Average documentation cosine:** 0.30 (doc text across 24 matched files)
+- **Files Present:** 34/36 (94.4%)
+- **Function parity:** 113/595 matched (target 274) — 19.0%
+- **Class/type parity:** 33/189 matched (target 78) — 17.5%
+- **Combined symbol parity:** 146/784 matched (target 352) — 18.6%
+- **Average inline-code cosine:** 0.13 (function body across 30 matched files)
+- **Average documentation cosine:** 0.31 (doc text across 30 matched files)
 - **Cheat-zeroed Files:** 8
-- **Critical Issues:** 26 files with <0.60 function similarity
+- **Critical Issues:** 32 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
@@ -213,7 +213,40 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/10 matched (target 1)
 - **Missing types:** `Ok`, `Error`, `SerializeSeq`, `SerializeTuple`, `SerializeTupleStruct`, `SerializeTupleVariant`, `SerializeMap`, `SerializeStruct`, `SerializeStructVariant`
 
-### 16. parser.debug
+### 16. deserializer.key
+
+- **Target:** `deserializer.Key`
+- **Similarity:** 0.03
+- **Dependents:** 0
+- **Priority Score:** 272909.7
+- **Functions:** 1/24 matched (target 2)
+- **Missing functions:** `into_deserializer`, `deserialize_any`, `deserialize_bool`, `deserialize_i8`, `deserialize_i16`, `deserialize_i32`, `deserialize_i64`, `deserialize_i128`, `deserialize_u8`, `deserialize_u16`, `deserialize_u32`, `deserialize_u64`, `deserialize_u128`, `deserialize_char`, `deserialize_enum`, `deserialize_struct`, `deserialize_newtype_struct`, `variant_seed`, `unit_only`, `unit_variant`, `newtype_variant_seed`, `tuple_variant`, `struct_variant`
+- **Types:** 1/5 matched (target 1)
+- **Missing types:** `Deserializer`, `Error`, `Variant`, `UnitOnly`
+
+### 17. deserializer.value
+
+- **Target:** `deserializer.Value`
+- **Similarity:** 0.15
+- **Dependents:** 0
+- **Priority Score:** 131708.5
+- **Functions:** 3/14 matched (target 4)
+- **Missing functions:** `with_struct_key_validation`, `from`, `deserialize_any`, `deserialize_u128`, `deserialize_i128`, `deserialize_option`, `deserialize_newtype_struct`, `deserialize_struct`, `deserialize_enum`, `into_deserializer`, `validate_struct_keys`
+- **Types:** 1/3 matched (target 1)
+- **Missing types:** `Error`, `Deserializer`
+
+### 18. deserializer.table
+
+- **Target:** `deserializer.Table`
+- **Similarity:** 0.07
+- **Dependents:** 0
+- **Priority Score:** 131509.3
+- **Functions:** 1/10 matched (target 2)
+- **Missing functions:** `deserialize_any`, `deserialize_option`, `deserialize_newtype_struct`, `deserialize_struct`, `deserialize_enum`, `into_deserializer`, `next_key_seed`, `next_value_seed`, `variant_seed`
+- **Types:** 1/5 matched (target 1)
+- **Missing types:** `Error`, `Deserializer`, `TableMapAccess`, `Variant`
+
+### 19. parser.debug
 
 - **Target:** `parser.Debug [ZERO]`
 - **Similarity:** 0.00
@@ -224,18 +257,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/4 matched (target 1)
 - **Missing types:** `DebugDepth`, `DebugDepthGuard`, `Target`
 
-### 17. value.array
-
-- **Target:** `value.Array`
-- **Similarity:** 0.00
-- **Dependents:** 0
-- **Priority Score:** 101010.0
-- **Functions:** 0/6 matched (target 1)
-- **Missing functions:** `seq`, `end`, `multiline_array`, `serialize_element`, `serialize_field`, `tuple`
-- **Types:** 0/4 matched (target 1)
-- **Missing types:** `SerializeValueArray`, `Ok`, `Error`, `SerializeTupleVariant`
-
-### 18. parser.document
+### 20. parser.document
 
 - **Target:** `parser.Document`
 - **Similarity:** 0.00
@@ -246,7 +268,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/2 matched (target 1)
 - **Missing types:** `TableHeader`, `State`
 
-### 19. parser.inline_table
+### 21. parser.inline_table
 
 - **Target:** `parser.InlineTable`
 - **Similarity:** 0.00
@@ -257,7 +279,18 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/1 matched
 - **Missing types:** `State`
 
-### 20. deserializer.mod
+### 22. value.array
+
+- **Target:** `value.Array`
+- **Similarity:** 0.00
+- **Dependents:** 0
+- **Priority Score:** 101010.0
+- **Functions:** 0/6 matched (target 1)
+- **Missing functions:** `seq`, `end`, `multiline_array`, `serialize_element`, `serialize_field`, `tuple`
+- **Types:** 0/4 matched (target 1)
+- **Missing types:** `SerializeValueArray`, `Ok`, `Error`, `SerializeTupleVariant`
+
+### 23. deserializer.mod
 
 - **Target:** `de.Deserializer [STUB] [PROVENANCE-FALLBACK]`
 - **Similarity:** 0.00
@@ -271,7 +304,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: tests de/deserializer/mod.rs` (current: `// port-lint: tests de/mod.rs`)
 - **Lint issues:** 1
 
-### 21. parser.array
+### 24. parser.array
 
 - **Target:** `parser.Array`
 - **Similarity:** 0.00
@@ -282,7 +315,18 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/1 matched
 - **Missing types:** `State`
 
-### 22. document.map
+### 25. deserializer.array
+
+- **Target:** `deserializer.Array`
+- **Similarity:** 0.12
+- **Dependents:** 0
+- **Priority Score:** 70908.8
+- **Functions:** 1/5 matched (target 2)
+- **Missing functions:** `deserialize_any`, `deserialize_struct`, `into_deserializer`, `next_element_seed`
+- **Types:** 1/4 matched (target 1)
+- **Missing types:** `Error`, `Deserializer`, `ArraySeqAccess`
+
+### 26. document.map
 
 - **Target:** `document.Map`
 - **Similarity:** 0.00
@@ -293,7 +337,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/3 matched (target 1)
 - **Missing types:** `Ok`, `Error`
 
-### 23. parser.key
+### 27. parser.key
 
 - **Target:** `parser.Key`
 - **Similarity:** 0.00
@@ -304,7 +348,18 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/1 matched
 - **Missing types:** `State`
 
-### 24. document.array
+### 28. deserializer.table_enum
+
+- **Target:** `deserializer.TableEnum`
+- **Similarity:** 0.16
+- **Dependents:** 0
+- **Priority Score:** 50708.4
+- **Functions:** 1/5 matched (target 2)
+- **Missing functions:** `unit_variant`, `newtype_variant_seed`, `tuple_variant`, `struct_variant`
+- **Types:** 1/2 matched (target 1)
+- **Missing types:** `Error`
+
+### 29. document.array
 
 - **Target:** `document.Array`
 - **Similarity:** 0.00
@@ -315,7 +370,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/3 matched (target 1)
 - **Missing types:** `Ok`, `Error`
 
-### 25. ser.error
+### 30. ser.error
 
 - **Target:** `ser.Error`
 - **Similarity:** 0.27
@@ -326,7 +381,18 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/2 matched (target 8)
 - **Missing types:** _none_
 
-### 26. parser.value
+### 31. macros
+
+- **Target:** `toml.Macros`
+- **Similarity:** 0.00
+- **Dependents:** 0
+- **Priority Score:** 30310.0
+- **Functions:** 0/3 matched (target 1)
+- **Missing functions:** `insert_toml`, `push_toml`, `traverse`
+- **Types:** 0/0 matched
+- **Missing types:** _none_
+
+### 32. parser.value
 
 - **Target:** `parser.Value [ZERO]`
 - **Similarity:** 0.00
@@ -337,7 +403,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/0 matched (target 1)
 - **Missing types:** _none_
 
-### 27. lib
+### 33. lib
 
 - **Target:** `toml.Lib [ZERO]`
 - **Similarity:** 0.00
@@ -348,7 +414,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 0/1 matched (target 2)
 - **Missing types:** `ReadmeDoctests`
 
-### 28. ser.mod
+### 34. ser.mod
 
 - **Target:** `ser.Serializer [STUB]`
 - **Similarity:** 0.00
