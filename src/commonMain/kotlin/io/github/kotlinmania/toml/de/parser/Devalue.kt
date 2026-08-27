@@ -1,4 +1,4 @@
-// port-lint: source toml/src/de/parser/devalue.rs
+// port-lint: source de/parser/devalue.rs
 package io.github.kotlinmania.toml.de.parser
 
 /**
