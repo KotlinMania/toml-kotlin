@@ -159,6 +159,17 @@ public sealed class DeValue {
             is Array -> "array"
             is Table -> "table"
         }
+
+    public fun toValue(): io.github.kotlinmania.toml.Value =
+        when (this) {
+            is Str -> io.github.kotlinmania.toml.Value.Str(value)
+            is Integer -> io.github.kotlinmania.toml.Value.Integer(value.toI64() ?: 0L)
+            is Float -> io.github.kotlinmania.toml.Value.Float(value.toF64() ?: 0.0)
+            is Boolean -> io.github.kotlinmania.toml.Value.Boolean(value)
+            is Datetime -> io.github.kotlinmania.toml.Value.Datetime(value)
+            is Array -> io.github.kotlinmania.toml.Value.Array(value.toArray())
+            is Table -> io.github.kotlinmania.toml.Value.Table(value.toTable())
+        }
 }
 
 /**

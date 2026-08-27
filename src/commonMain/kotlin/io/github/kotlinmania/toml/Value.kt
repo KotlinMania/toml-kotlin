@@ -1,6 +1,8 @@
 // port-lint: source value.rs
 package io.github.kotlinmania.toml
 
+import io.github.kotlinmania.toml.de.parser.ValueParser
+
 /**
  * Representation of a TOML value.
  */
@@ -51,8 +53,12 @@ public sealed class Value {
 
     /** Represents a TOML table */
     public data class Table(
-        public val value: Map<kotlin.String, Value> = emptyMap(),
+        public val value: io.github.kotlinmania.toml.Table = io.github.kotlinmania.toml.Table(),
     ) : Value() {
+        public constructor(map: Map<kotlin.String, Value>) : this(
+            if (map is io.github.kotlinmania.toml.Table) map else io.github.kotlinmania.toml.Table(map)
+        )
+
         override fun toString(): kotlin.String = value.toString()
     }
 
@@ -71,8 +77,14 @@ public sealed class Value {
     /** Extracts the boolean value if it is a boolean. */
     public fun asBoolean(): kotlin.Boolean? = (this as? Boolean)?.value
 
+    /** Extracts the boolean value if it is a boolean. */
+    public fun asBool(): kotlin.Boolean? = (this as? Boolean)?.value
+
     /** Tests whether this value is a boolean. */
     public val isBoolean: kotlin.Boolean get() = this is Boolean
+
+    /** Tests whether this value is a boolean. */
+    public val isBool: kotlin.Boolean get() = this is Boolean
 
     /** Extracts the string of this value if it is a string. */
     public fun asString(): kotlin.String? = (this as? Str)?.value
@@ -99,7 +111,10 @@ public sealed class Value {
     public val isArray: kotlin.Boolean get() = this is Array
 
     /** Extracts the table value if it is a table. */
-    public fun asTable(): Map<kotlin.String, Value>? = (this as? Table)?.value
+    public fun asTable(): io.github.kotlinmania.toml.Table? = (this as? Table)?.value
+
+    /** Extracts mutable table if applicable. */
+    public fun asTableMut(): io.github.kotlinmania.toml.Table? = (this as? Table)?.value
 
     /** Tests whether this value is a table. */
     public val isTable: kotlin.Boolean get() = this is Table
@@ -125,6 +140,12 @@ public sealed class Value {
     /** Index into a TOML array by index. */
     public operator fun get(index: Int): Value? = (this as? Array)?.value?.getOrNull(index)
 
+    /** Mutably index into a TOML table by key. */
+    public fun getMut(key: kotlin.String): Value? = (this as? Table)?.value?.get(key)
+
+    /** Mutably index into a TOML array by index. */
+    public fun getMut(index: Int): Value? = (this as? Array)?.value?.getOrNull(index)
+
     public companion object {
         public fun from(value: kotlin.String): Value = Str(value)
 
@@ -139,5 +160,7 @@ public sealed class Value {
         public fun from(value: List<Value>): Value = Array(value)
 
         public fun from(value: Map<kotlin.String, Value>): Value = Table(value)
+
+        public fun fromStr(s: String): Value = ValueParser.parseScalar(s).toValue()
     }
 }

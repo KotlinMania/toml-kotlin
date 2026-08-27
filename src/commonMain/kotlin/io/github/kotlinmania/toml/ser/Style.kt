@@ -18,5 +18,7 @@ public data class Style(
 ) {
     public companion object {
         public val DEFAULT: Style = Style()
+        public val COMPACT: Style = Style(multilineArray = false)
+        public val PRETTY: Style = Style(multilineArray = true)
     }
 }

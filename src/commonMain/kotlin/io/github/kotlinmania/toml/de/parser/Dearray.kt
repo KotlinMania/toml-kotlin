@@ -23,6 +23,9 @@ public class DeArray internal constructor(
         arrayOfTables = yes
     }
 
+    public fun toArray(): List<io.github.kotlinmania.toml.Value> =
+        items.map { it.value.toValue() }
+
     override fun toString(): String = items.toString()
 
     override fun equals(other: Any?): Boolean {
