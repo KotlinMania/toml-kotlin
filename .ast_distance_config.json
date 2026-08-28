@@ -16,7 +16,19 @@
     "lint": true
   },
   "reexport_modules": [
-    "mod.rs",
-    "lib.rs"
+    "lib",
+    "mod",
+    "de/mod",
+    "ser/mod",
+    "value/mod",
+    "document/mod",
+    "deserializer/mod",
+    "parser/mod",
+    "de.mod",
+    "ser.mod",
+    "value.mod",
+    "document.mod",
+    "deserializer.mod",
+    "parser.mod"
   ]
 }
