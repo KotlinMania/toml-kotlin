@@ -1,4 +1,4 @@
-// port-lint: tests de/parser/dearray.rs
+// port-lint: tests toml/src/de/parser/dearray.rs
 package io.github.kotlinmania.toml.de.parser
 
 import kotlin.test.Test

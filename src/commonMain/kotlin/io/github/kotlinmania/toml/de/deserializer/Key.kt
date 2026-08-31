@@ -1,4 +1,4 @@
-// port-lint: source de/deserializer/key.rs
+// port-lint: source toml/src/de/deserializer/key.rs
 package io.github.kotlinmania.toml.de.deserializer
 
 import io.github.kotlinmania.toml.de.TomlSpan

@@ -1,4 +1,4 @@
-// port-lint: tests de/parser/detable.rs
+// port-lint: tests toml/src/de/parser/detable.rs
 package io.github.kotlinmania.toml.de.parser
 
 import kotlin.test.Test

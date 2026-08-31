@@ -1,4 +1,4 @@
-// port-lint: source de/parser/detable.rs
+// port-lint: source toml/src/de/parser/detable.rs
 package io.github.kotlinmania.toml.de.parser
 
 import io.github.kotlinmania.toml.map.TomlMap
