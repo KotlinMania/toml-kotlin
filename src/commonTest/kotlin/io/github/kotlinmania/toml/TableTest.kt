@@ -1,4 +1,4 @@
-// port-lint: tests table.rs
+// port-lint: tests toml/src/table.rs
 package io.github.kotlinmania.toml
 
 import kotlin.test.Test
