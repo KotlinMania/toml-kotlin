@@ -1,4 +1,4 @@
-// port-lint: source de/deserializer/mod.rs
+// port-lint: source toml/src/de/deserializer/mod.rs
 package io.github.kotlinmania.toml.de
 
 import io.github.kotlinmania.toml.Table

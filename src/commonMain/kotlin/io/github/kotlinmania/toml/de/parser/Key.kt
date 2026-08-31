@@ -1,4 +1,4 @@
-// port-lint: source de/parser/key.rs
+// port-lint: source toml/src/de/parser/key.rs
 package io.github.kotlinmania.toml.de.parser
 
 /**

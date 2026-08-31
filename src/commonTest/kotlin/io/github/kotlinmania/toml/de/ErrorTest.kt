@@ -1,4 +1,4 @@
-// port-lint: tests de/error.rs
+// port-lint: tests toml/src/de/error.rs
 package io.github.kotlinmania.toml.de
 
 /*
