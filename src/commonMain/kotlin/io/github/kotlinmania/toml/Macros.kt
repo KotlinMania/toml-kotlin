@@ -1,4 +1,4 @@
-// port-lint: source macros.rs
+// port-lint: source toml/src/macros.rs
 package io.github.kotlinmania.toml
 
 /**

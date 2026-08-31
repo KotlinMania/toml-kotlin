@@ -1,4 +1,4 @@
-// port-lint: source de/deserializer/array.rs
+// port-lint: source toml/src/de/deserializer/array.rs
 package io.github.kotlinmania.toml.de.deserializer
 
 import io.github.kotlinmania.toml.Value
