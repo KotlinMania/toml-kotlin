@@ -1,4 +1,4 @@
-// port-lint: source toml/src/map.rs
+// port-lint: source map.rs
 package io.github.kotlinmania.toml.map
 
 /**

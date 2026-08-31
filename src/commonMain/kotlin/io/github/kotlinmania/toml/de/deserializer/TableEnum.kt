@@ -1,4 +1,4 @@
-// port-lint: source toml/src/de/deserializer/table_enum.rs
+// port-lint: source de/deserializer/table_enum.rs
 package io.github.kotlinmania.toml.de.deserializer
 
 import io.github.kotlinmania.toml.Value

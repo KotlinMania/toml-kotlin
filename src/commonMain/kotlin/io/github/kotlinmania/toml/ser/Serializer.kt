@@ -1,4 +1,4 @@
-// port-lint: source toml/src/ser/mod.rs
+// port-lint: source ser/mod.rs
 package io.github.kotlinmania.toml.ser
 
 import io.github.kotlinmania.toml.Table

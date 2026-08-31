@@ -4,12 +4,12 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 34/39 (87.2%)
-- **Function parity:** 107/527 matched (target 241) — 20.3%
-- **Class/type parity:** 30/172 matched (target 69) — 17.4%
-- **Combined symbol parity:** 137/699 matched (target 310) — 19.6%
-- **Average inline-code cosine:** 0.13 (function body across 29 matched files)
-- **Average documentation cosine:** 0.30 (doc text across 29 matched files)
+- **Files Present:** 34/36 (94.4%)
+- **Function parity:** 107/519 matched (target 241) — 20.6%
+- **Class/type parity:** 30/166 matched (target 69) — 18.1%
+- **Combined symbol parity:** 137/685 matched (target 310) — 20.0%
+- **Average inline-code cosine:** 0.13 (function body across 30 matched files)
+- **Average documentation cosine:** 0.31 (doc text across 30 matched files)
 - **Cheat-zeroed Files:** 3
 - **Critical Issues:** 32 files with <0.60 function similarity
 
@@ -92,7 +92,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/1 matched
 - **Missing types:** _none_
 
-### 5. toml.table
+### 5. table
 
 - **Target:** `toml.Table`
 - **Similarity:** 0.01
@@ -114,7 +114,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/5 matched (target 2)
 - **Missing types:** `Target`, `Output`, `Item`, `IntoIter`
 
-### 7. toml.value
+### 7. value
 
 - **Target:** `toml.Value`
 - **Similarity:** 0.06
@@ -136,7 +136,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/2 matched
 - **Missing types:** _none_
 
-### 9. toml.map
+### 9. map
 
 - **Target:** `map.Map [ZERO]`
 - **Similarity:** 0.00
@@ -345,7 +345,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 2/2 matched (target 8)
 - **Missing types:** _none_
 
-### 28. toml.macros
+### 28. macros
 
 - **Target:** `toml.Macros`
 - **Similarity:** 0.00
@@ -387,9 +387,16 @@ do not treat them as the next implementation target by default.
 
 | Source | Target | Path |
 |--------|--------|------|
-| `value.mod` | `value.ValueSerializer` | `toml/src/ser/value/mod` |
-| `document.mod` | `document.Serializer` | `toml/src/ser/document/mod` |
-| `deserializer.mod` | `de.Deserializer` | `toml/src/de/deserializer/mod` |
-| `toml.lib` | `toml.Lib` | `toml/src/lib` |
-| `ser.mod` | `ser.Serializer` | `toml/src/ser/mod` |
+| `value.mod` | `value.ValueSerializer` | `ser/value/mod` |
+| `document.mod` | `document.Serializer` | `ser/document/mod` |
+| `deserializer.mod` | `de.Deserializer` | `de/deserializer/mod` |
+| `lib` | `toml.Lib` | `lib` |
+| `ser.mod` | `ser.Serializer` | `ser/mod` |
+
+### Missing
+
+| Source | Expected target | Deps | Source path | Expected path |
+|--------|-----------------|------|-------------|---------------|
+| `de.mod` | `de.Mod` | 0 | `de/mod.rs` | `de/Mod.kt` |
+| `parser.mod` | `de.parser.Mod` | 0 | `de/parser/mod.rs` | `de/parser/Mod.kt` |
 
