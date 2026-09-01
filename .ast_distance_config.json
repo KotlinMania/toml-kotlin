@@ -2,7 +2,7 @@
   "type": "port",
   "name": "toml-kotlin",
   "source": {
-    "path": "tmp",
+    "path": "tmp/toml/src",
     "lang": "rust"
   },
   "target": {
