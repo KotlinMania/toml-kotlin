@@ -1,4 +1,4 @@
-// port-lint: source toml/src/ser/document/buffer.rs
+// port-lint: source ser/document/buffer.rs
 package io.github.kotlinmania.toml.ser.document
 
 /*
