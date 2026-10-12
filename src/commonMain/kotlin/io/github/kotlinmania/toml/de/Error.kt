@@ -44,6 +44,11 @@ public class Error(
         keys.add(0, key)
     }
 
+    /** What went wrong */
+    internal fun message(): String = message
+
+    public fun fmt(): String = toString()
+
     /** The start/end index into the original document where the error occurred */
     public fun span(): TomlSpan? = span
 
@@ -139,6 +144,21 @@ public class Error(
             span: IntRange,
         ): Error = custom(msg, TomlSpan.fromRange(span))
 
+        public fun new(
+            message: String,
+            input: String? = null,
+            span: TomlSpan? = null,
+        ): Error = Error(message, input, span)
+
+        public fun renderLiteral(literal: String): String =
+            when {
+                literal == "\n" -> "newline"
+                literal == "`" -> "'`'"
+                literal.isNotEmpty() && literal.all { it.code in 0..31 || it.code == 127 } ->
+                    "`${literal.replace("\\", "\\\\").replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t")}`"
+                else -> "`$literal`"
+            }
+
         internal fun translatePosition(
             input: String,
             index: Int,
@@ -174,5 +194,41 @@ public class Error(
                 ) + columnOffset
             return Pair(line, column)
         }
+    }
+}
+
+/**
+ * Sink for collecting deserialization and parsing errors.
+ */
+public class TomlSink<S>(
+    public val source: String,
+    private var input: String? = null,
+    private var sink: S,
+    private val onReport: (TomlSink<S>, Error) -> Unit,
+) {
+    public fun intoInner(): S = sink
+
+    public fun reportError(error: Error) {
+        onReport(this, error)
+    }
+
+    public fun setSink(newSink: S) {
+        this.sink = newSink
+    }
+
+    public companion object {
+        public fun ofOption(source: String): TomlSink<Error?> =
+            TomlSink(source = source, sink = null) { s, err ->
+                if (s.intoInner() == null) {
+                    s.setSink(err)
+                }
+            }
+
+        public fun ofList(source: String): TomlSink<MutableList<Error>> =
+            TomlSink(source = source, sink = mutableListOf()) { s, err ->
+                s.intoInner().add(err)
+            }
+
+        public fun new(source: String): TomlSink<Error?> = ofOption(source)
     }
 }

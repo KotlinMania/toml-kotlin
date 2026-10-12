@@ -5,36 +5,34 @@ Based on AST analysis, here are the concrete next steps.
 ## Summary
 
 - **Files Present:** 34/36 (94.4%)
-- **Function parity:** 107/516 matched (target 240) — 20.7%
-- **Class/type parity:** 30/166 matched (target 69) — 18.1%
-- **Combined symbol parity:** 137/682 matched (target 309) — 20.1%
+- **Function parity:** 117/516 matched (target 261) — 22.7%
+- **Class/type parity:** 34/166 matched (target 73) — 20.5%
+- **Combined symbol parity:** 151/682 matched (target 334) — 22.1%
 - **Average inline-code cosine:** 0.13 (function body across 30 matched files)
 - **Average documentation cosine:** 0.31 (doc text across 30 matched files)
 - **Cheat-zeroed Files:** 3
-- **Critical Issues:** 32 files with <0.60 function similarity
+- **Critical Issues:** 31 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
 ### 1. de.error
-- **Similarity:** 0.53 (needs 32% improvement)
+- **Similarity:** 0.72 (needs 13% improvement)
 - **Dependencies:** 17
-- **Priority Score:** 17072204.0
-- **Functions:** 14/20 matched (target 22)
-- **Missing functions:** `new`, `message`, `render_literal`, `fmt`, `into_inner`, `report_error`
-- **Types:** 1/2 matched (target 3)
-- **Missing types:** `TomlSink`
-- **Symbol Deficit:** 7 (functions: 6, types: 1)
-- **Action:** Deep review - likely missing major functionality
+- **Priority Score:** 17002202.0
+- **Functions:** 20/20 matched (target 36)
+- **Missing functions:** _none_
+- **Types:** 2/2 matched (target 4)
+- **Missing types:** _none_
+- **Action:** Review and complete missing sections
 
 ### 2. parser.devalue
-- **Similarity:** 0.30 (needs 55% improvement)
+- **Similarity:** 0.36 (needs 49% improvement)
 - **Dependencies:** 12
-- **Priority Score:** 12073807.0
-- **Functions:** 27/31 matched (target 39)
-- **Missing functions:** `radix`, `fmt`, `parse`, `parse_recoverable`
-- **Types:** 4/7 matched (target 15)
-- **Missing types:** `DeString`, `Output`, `Sealed`
-- **Symbol Deficit:** 7 (functions: 4, types: 3)
+- **Priority Score:** 12003806.0
+- **Functions:** 31/31 matched (target 46)
+- **Missing functions:** _none_
+- **Types:** 7/7 matched (target 18)
+- **Missing types:** _none_
 - **Action:** Deep review - likely missing major functionality
 
 ## Priority 2: Port Missing High-Value Files
@@ -50,25 +48,25 @@ Every matched file is listed below with function and type symbol parity.
 ### 1. de.error
 
 - **Target:** `de.Error`
-- **Similarity:** 0.53
+- **Similarity:** 0.72
 - **Dependents:** 17
-- **Priority Score:** 17072204.0
-- **Functions:** 14/20 matched (target 22)
-- **Missing functions:** `new`, `message`, `render_literal`, `fmt`, `into_inner`, `report_error`
-- **Types:** 1/2 matched (target 3)
-- **Missing types:** `TomlSink`
+- **Priority Score:** 17002202.0
+- **Functions:** 20/20 matched (target 36)
+- **Missing functions:** _none_
+- **Types:** 2/2 matched (target 4)
+- **Missing types:** _none_
 - **Tests:** 8/8 matched
 
 ### 2. parser.devalue
 
 - **Target:** `parser.Devalue`
-- **Similarity:** 0.30
+- **Similarity:** 0.36
 - **Dependents:** 12
-- **Priority Score:** 12073807.0
-- **Functions:** 27/31 matched (target 39)
-- **Missing functions:** `radix`, `fmt`, `parse`, `parse_recoverable`
-- **Types:** 4/7 matched (target 15)
-- **Missing types:** `DeString`, `Output`, `Sealed`
+- **Priority Score:** 12003806.0
+- **Functions:** 31/31 matched (target 46)
+- **Missing functions:** _none_
+- **Types:** 7/7 matched (target 18)
+- **Missing types:** _none_
 
 ### 3. parser.detable
 
