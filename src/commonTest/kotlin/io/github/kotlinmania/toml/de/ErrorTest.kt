@@ -79,4 +79,42 @@ class ErrorTest {
         val position = Error.translatePosition(input, index)
         assertEquals(Pair(1, 2), position)
     }
+
+    @Test
+    fun errorMessageAndNew() {
+        val err = Error.new("expected integer", "foo = bar", TomlSpan(0, 3))
+        assertEquals("expected integer", err.message())
+        assertEquals(TomlSpan(0, 3), err.span())
+        assertEquals(err.toString(), err.fmt())
+    }
+
+    @Test
+    fun renderLiteralTest() {
+        assertEquals("newline", Error.renderLiteral("\n"))
+        assertEquals("'`'", Error.renderLiteral("`"))
+        assertEquals("`abc`", Error.renderLiteral("abc"))
+    }
+
+    @Test
+    fun tomlSinkOption() {
+        val sink = TomlSink.ofOption("foo = bar")
+        assertEquals(null, sink.intoInner())
+        val err = Error.new("err1")
+        sink.reportError(err)
+        assertEquals(err, sink.intoInner())
+        val err2 = Error.new("err2")
+        sink.reportError(err2)
+        assertEquals(err, sink.intoInner())
+    }
+
+    @Test
+    fun tomlSinkList() {
+        val sink = TomlSink.ofList("foo = bar")
+        assertEquals(0, sink.intoInner().size)
+        val err1 = Error.new("err1")
+        val err2 = Error.new("err2")
+        sink.reportError(err1)
+        sink.reportError(err2)
+        assertEquals(listOf(err1, err2), sink.intoInner())
+    }
 }

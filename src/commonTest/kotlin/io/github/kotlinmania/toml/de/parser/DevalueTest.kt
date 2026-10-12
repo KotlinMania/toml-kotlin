@@ -91,4 +91,25 @@ class DevalueTest {
         assertTrue(s1.sameType(s2))
         assertFalse(s1.sameType(i1))
     }
+
+    @Test
+    fun testDeIntegerRadixAndFmt() {
+        val intHex = DeInteger("2a", 16u)
+        assertEquals(16u, intHex.radix())
+        assertEquals("0x2a", intHex.fmt())
+        val f = DeFloat("2.718")
+        assertEquals("2.718", f.fmt())
+    }
+
+    @Test
+    fun testParseAndParseRecoverable() {
+        val res = DeValue.parse("42")
+        assertTrue(res.isSuccess)
+        val spanned = res.getOrThrow()
+        assertTrue(spanned.value.isInteger())
+
+        val (rec, errs) = DeValue.parseRecoverable("\"hello\"")
+        assertTrue(errs.isEmpty())
+        assertTrue(rec.value.isStr())
+    }
 }

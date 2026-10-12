@@ -2,6 +2,11 @@
 package io.github.kotlinmania.toml.de.parser
 
 /**
+ * Type representing a TOML string during deserialization.
+ */
+public typealias DeString = String
+
+/**
  * Spanned wrapper attaching source position information.
  */
 public data class Spanned<T>(
@@ -18,6 +23,10 @@ public data class DeInteger(
     public val inner: String,
     public val radix: UInt = 10u,
 ) {
+    internal fun radix(): UInt = radix
+
+    public fun fmt(): String = toString()
+
     public fun toU64(): ULong? =
         try {
             inner.toULong(radix.toInt())
@@ -67,6 +76,8 @@ public data class DeFloat(
     }
 
     public fun asStr(): String = inner
+
+    public fun fmt(): String = toString()
 
     override fun toString(): String = inner
 
@@ -204,18 +215,53 @@ public sealed class DeValue {
                 io.github.kotlinmania.toml.Value
                     .Table(value.toTable())
         }
+
+    public companion object {
+        public fun parse(input: String): Result<Spanned<DeValue>> =
+            try {
+                val value = ArrayParser.parseAnyValue(input)
+                Result.success(Spanned(value, 0..input.length))
+            } catch (e: Exception) {
+                Result.failure(
+                    io.github.kotlinmania.toml.de
+                        .Error(e.message ?: "Failed to parse TOML value", input),
+                )
+            }
+
+        public fun parseRecoverable(input: String): Pair<Spanned<DeValue>, List<io.github.kotlinmania.toml.de.Error>> =
+            try {
+                val value = ArrayParser.parseAnyValue(input)
+                Pair(Spanned(value, 0..input.length), emptyList())
+            } catch (e: Exception) {
+                val err =
+                    io.github.kotlinmania.toml.de
+                        .Error(e.message ?: "Failed to parse TOML value", input)
+                Pair(Spanned(DeValue.Str(input), 0..input.length), listOf(err))
+            }
+    }
 }
+
+/**
+ * Type alias for indexing output.
+ */
+public typealias Output = Spanned<DeValue>
+
+/**
+ * Marker interface for sealed index types.
+ */
+public interface Sealed
 
 /**
  * Types that can be used to index a [DeValue].
  */
-public interface Index {
+public interface Index : Sealed {
     public fun index(value: DeValue): Spanned<DeValue>?
 }
 
 public class IntIndex(
     public val index: Int,
-) : Index {
+) : Index,
+    Sealed {
     override fun index(value: DeValue): Spanned<DeValue>? =
         when (value) {
             is DeValue.Array -> value.value.getOrNull(index)
@@ -225,7 +271,8 @@ public class IntIndex(
 
 public class StringIndex(
     public val key: String,
-) : Index {
+) : Index,
+    Sealed {
     override fun index(value: DeValue): Spanned<DeValue>? =
         when (value) {
             is DeValue.Table -> {
