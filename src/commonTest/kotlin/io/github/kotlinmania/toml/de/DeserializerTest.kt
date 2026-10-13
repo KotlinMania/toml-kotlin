@@ -1,7 +1,6 @@
 // port-lint: tests de/mod.rs
 package io.github.kotlinmania.toml.de
 
-import io.github.kotlinmania.toml.Table
 import io.github.kotlinmania.toml.Value
 import kotlin.test.Test
 import kotlin.test.assertEquals
