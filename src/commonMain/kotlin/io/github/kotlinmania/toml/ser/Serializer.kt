@@ -1,11 +1,8 @@
-// port-lint: source ser/mod.rs
 package io.github.kotlinmania.toml.ser
 
 import io.github.kotlinmania.toml.Table
 import io.github.kotlinmania.toml.ser.document.Buffer
 import io.github.kotlinmania.toml.ser.document.Serializer
-
-public typealias DocumentSerializer = Serializer
 
 /**
  * Serialize the given TOML Table as a String of TOML.
