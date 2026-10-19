@@ -12,4 +12,4 @@ package io.github.kotlinmania.toml
  * """)
  * ```
  */
-public fun toml(raw: String): Table = fromStr(raw)
+public fun toml(raw: String): Table = parseTable(raw)

@@ -216,6 +216,19 @@ public sealed class DeValue {
                     .Table(value.toTable())
         }
 
+    public fun get(index: Int): Spanned<DeValue>? = IntIndex(index).index(this)
+
+    public fun get(key: String): Spanned<DeValue>? = StringIndex(key).index(this)
+
+    public fun index(index: Index): Spanned<DeValue> =
+        get(index) ?: throw NoSuchElementException("index not found")
+
+    public fun index(index: Int): Spanned<DeValue> =
+        get(index) ?: throw NoSuchElementException("index not found")
+
+    public fun index(key: String): Spanned<DeValue> =
+        get(key) ?: throw NoSuchElementException("index not found")
+
     public companion object {
         public fun parse(input: String): Result<Spanned<DeValue>> =
             try {

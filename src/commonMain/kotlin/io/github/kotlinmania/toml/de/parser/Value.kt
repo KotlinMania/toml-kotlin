@@ -66,7 +66,7 @@ public object ValueParser {
             return DeValue.Datetime(s)
         }
 
-        // Float (contains '.' or 'e'/'E')
+        // Float (contains dot or exponent)
         if (s.contains('.') || s.contains('e') || s.contains('E')) {
             val clean = s.replace("_", "")
             if (clean.toDoubleOrNull() != null) {
