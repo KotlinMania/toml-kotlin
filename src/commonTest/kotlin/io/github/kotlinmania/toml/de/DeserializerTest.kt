@@ -1,4 +1,3 @@
-// port-lint: tests de/mod.rs
 package io.github.kotlinmania.toml.de
 
 import io.github.kotlinmania.toml.Value

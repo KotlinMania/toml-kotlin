@@ -1,4 +1,3 @@
-// port-lint: source ser/value/mod.rs
 package io.github.kotlinmania.toml.ser.value
 
 import io.github.kotlinmania.toml.Value
@@ -21,8 +20,11 @@ public object ValueSerializer {
 
     public fun serializeString(
         s: String,
-        @Suppress("UNUSED_PARAMETER") style: Style = Style.COMPACT,
-    ): String = KeySerializer.quoteKey(s)
+        style: Style = Style.COMPACT,
+    ): String {
+        check(style == Style.COMPACT || style == Style.PRETTY)
+        return KeySerializer.quoteKey(s)
+    }
 
     public fun serializeFloat(f: Double): String =
         when {

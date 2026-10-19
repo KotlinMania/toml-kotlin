@@ -2,6 +2,7 @@
 package io.github.kotlinmania.toml.de.parser
 
 import io.github.kotlinmania.toml.map.TomlMap
+import io.github.kotlinmania.toml.de.Error as DeError
 
 /**
  * Type representing a TOML table, payload of the [DeValue.Table] variant.
@@ -44,6 +45,16 @@ public class DeTable(
         public fun parse(raw: String): Spanned<DeTable> {
             val doc = DocumentParser.parseDocument(raw)
             return Spanned(doc, 0..raw.length)
+        }
+
+        public fun parseRecoverable(raw: String): Pair<Spanned<DeTable>, List<DeError>> {
+            try {
+                val doc = DocumentParser.parseDocument(raw)
+                return Pair(Spanned(doc, 0..raw.length), emptyList())
+            } catch (e: Exception) {
+                val err = DeError(e.message ?: "Failed to parse TOML document", raw)
+                return Pair(Spanned(DeTable(), 0..raw.length), listOf(err))
+            }
         }
 
         public fun new(): DeTable = DeTable()

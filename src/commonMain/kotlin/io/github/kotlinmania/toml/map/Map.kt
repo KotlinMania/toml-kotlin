@@ -20,6 +20,15 @@ public open class TomlMap<K, V>(
         underlying.putAll(other)
     }
 
+    public constructor(
+        capacity: Int,
+        isDotted: Boolean = false,
+        isImplicit: Boolean = false,
+        isInline: Boolean = false,
+    ) : this(isDotted, isImplicit, isInline) {
+        require(capacity >= 0)
+    }
+
     override val entries: Set<Map.Entry<K, V>> get() = underlying.entries
     override val keys: Set<K> get() = underlying.keys
     override val size: Int get() = underlying.size
@@ -120,8 +129,8 @@ public open class TomlMap<K, V>(
         public fun <K, V> new(): TomlMap<K, V> = TomlMap()
 
         public fun <K, V> withCapacity(
-            @Suppress("UNUSED_PARAMETER") capacity: Int,
-        ): TomlMap<K, V> = TomlMap()
+            capacity: Int,
+        ): TomlMap<K, V> = TomlMap(capacity)
 
         public fun <K, V> from(pairs: Iterable<Pair<K, V>>): TomlMap<K, V> {
             val map = TomlMap<K, V>()

@@ -1,4 +1,3 @@
-// port-lint: tests ser/mod.rs
 package io.github.kotlinmania.toml.ser
 
 import io.github.kotlinmania.toml.Table
