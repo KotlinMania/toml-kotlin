@@ -52,7 +52,8 @@ EXTRA_TARGET_SYMBOL property KeyDeserializer::key at src/commonMain/kotlin/io/gi
 EXTRA_TARGET_SYMBOL property KeyDeserializer::span at src/commonMain/kotlin/io/github/kotlinmania/toml/de/deserializer/Key.kt:11
 EXTRA_TARGET_SYMBOL function KeyDeserializer::getKeyString at src/commonMain/kotlin/io/github/kotlinmania/toml/de/deserializer/Key.kt:13
 EXTRA_TARGET_SYMBOL function KeyDeserializer::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/deserializer/Key.kt:16
-PRESENT type Deserializer at tmp/toml/src/de/deserializer/mod.rs:29 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:14
+MISSING_FILE de/deserializer/mod.rs
+MISSING_SYMBOL type Deserializer at tmp/toml/src/de/deserializer/mod.rs:29
 MISSING_SYMBOL function parse at tmp/toml/src/de/deserializer/mod.rs:37
 MISSING_SYMBOL function new at tmp/toml/src/de/deserializer/mod.rs:50
 MISSING_SYMBOL function into_table_de at tmp/toml/src/de/deserializer/mod.rs:54
@@ -67,18 +68,6 @@ MISSING_SYMBOL type_alias Deserializer at tmp/toml/src/de/deserializer/mod.rs:16
 MISSING_SYMBOL function into_deserializer at tmp/toml/src/de/deserializer/mod.rs:166
 MISSING_SYMBOL type_alias Deserializer at tmp/toml/src/de/deserializer/mod.rs:172
 MISSING_SYMBOL function into_deserializer at tmp/toml/src/de/deserializer/mod.rs:174
-EXTRA_TARGET_SYMBOL property Deserializer::raw at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:15
-EXTRA_TARGET_SYMBOL property Deserializer::root at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:16
-EXTRA_TARGET_SYMBOL function Deserializer::toTable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:18
-EXTRA_TARGET_SYMBOL function Deserializer::Companion::parse at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:21
-EXTRA_TARGET_SYMBOL function Deserializer::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:26
-EXTRA_TARGET_SYMBOL type ValueDeserializer at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:33
-EXTRA_TARGET_SYMBOL property ValueDeserializer::input at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:34
-EXTRA_TARGET_SYMBOL function ValueDeserializer::toValue at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:36
-EXTRA_TARGET_SYMBOL function ValueDeserializer::Companion::parse at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:39
-EXTRA_TARGET_SYMBOL function ValueDeserializer::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:44
-EXTRA_TARGET_SYMBOL function fromStr at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:51
-EXTRA_TARGET_SYMBOL function fromSlice at src/commonMain/kotlin/io/github/kotlinmania/toml/de/Deserializer.kt:59
 PRESENT type TableDeserializer at tmp/toml/src/de/deserializer/table.rs:10 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/deserializer/Table.kt:11
 MISSING_SYMBOL function new at tmp/toml/src/de/deserializer/table.rs:16
 MISSING_SYMBOL type_alias Error at tmp/toml/src/de/deserializer/table.rs:22
@@ -270,33 +259,50 @@ EXTRA_TARGET_SYMBOL function DearrayTest::testDeArrayOperations at src/commonTes
 PRESENT type TraceScope at tmp/toml/src/de/parser/debug.rs:1 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:7
 MISSING_SYMBOL function new at tmp/toml/src/de/parser/debug.rs:8
 MISSING_SYMBOL function drop at tmp/toml/src/de/parser/debug.rs:21
-MISSING_SYMBOL function trace at tmp/toml/src/de/parser/debug.rs:29
-MISSING_SYMBOL type DebugDepth at tmp/toml/src/de/parser/debug.rs:35
+PRESENT function trace at tmp/toml/src/de/parser/debug.rs:29 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:41
+PRESENT type DebugDepth at tmp/toml/src/de/parser/debug.rs:35 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:45
 MISSING_SYMBOL function scoped at tmp/toml/src/de/parser/debug.rs:38
 MISSING_SYMBOL function enter_unchecked at tmp/toml/src/de/parser/debug.rs:42
 MISSING_SYMBOL function exit_unchecked at tmp/toml/src/de/parser/debug.rs:46
 MISSING_SYMBOL function depth at tmp/toml/src/de/parser/debug.rs:50
-MISSING_SYMBOL property DEBUG_DEPTH at tmp/toml/src/de/parser/debug.rs:55
-MISSING_SYMBOL type DebugDepthGuard at tmp/toml/src/de/parser/debug.rs:57
+PRESENT property DEBUG_DEPTH at tmp/toml/src/de/parser/debug.rs:55 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:60
+PRESENT type DebugDepthGuard at tmp/toml/src/de/parser/debug.rs:57 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:63
 MISSING_SYMBOL function new at tmp/toml/src/de/parser/debug.rs:63
 MISSING_SYMBOL function take at tmp/toml/src/de/parser/debug.rs:68
 MISSING_SYMBOL function drop at tmp/toml/src/de/parser/debug.rs:77
 MISSING_SYMBOL function as_ref at tmp/toml/src/de/parser/debug.rs:86
 MISSING_SYMBOL type_alias Target at tmp/toml/src/de/parser/debug.rs:92
 MISSING_SYMBOL function deref at tmp/toml/src/de/parser/debug.rs:95
-EXTRA_TARGET_SYMBOL property TraceScope::text at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:8
-EXTRA_TARGET_SYMBOL function TraceScope::close at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:10
-EXTRA_TARGET_SYMBOL function TraceScope::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:15
-EXTRA_TARGET_SYMBOL function TraceScope::Companion::trace at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:17
+EXTRA_TARGET_SYMBOL property TraceScope::text at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:9
+EXTRA_TARGET_SYMBOL property TraceScope::guard at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:10
+EXTRA_TARGET_SYMBOL function TraceScope::close at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:16
+EXTRA_TARGET_SYMBOL function TraceScope::drop at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:22
+EXTRA_TARGET_SYMBOL function TraceScope::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:27
+EXTRA_TARGET_SYMBOL function TraceScope::Companion::trace at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:29
+EXTRA_TARGET_SYMBOL property TraceScope::Companion::DEBUG_ENABLED at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:37
+EXTRA_TARGET_SYMBOL property DebugDepth::atomic at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:47
+EXTRA_TARGET_SYMBOL function DebugDepth::scoped at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:49
+EXTRA_TARGET_SYMBOL function DebugDepth::enterUnchecked at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:51
+EXTRA_TARGET_SYMBOL function DebugDepth::exitUnchecked at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:53
+EXTRA_TARGET_SYMBOL function DebugDepth::depth at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:57
+EXTRA_TARGET_SYMBOL property DebugDepthGuard::depth at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:65
+EXTRA_TARGET_SYMBOL property DebugDepthGuard::inc at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:66
+EXTRA_TARGET_SYMBOL function DebugDepthGuard::take at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:68
+EXTRA_TARGET_SYMBOL function DebugDepthGuard::drop at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:75
+EXTRA_TARGET_SYMBOL function DebugDepthGuard::close at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:79
+EXTRA_TARGET_SYMBOL function DebugDepthGuard::asRef at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:86
+EXTRA_TARGET_SYMBOL function DebugDepthGuard::deref at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:88
+EXTRA_TARGET_SYMBOL function DebugDepthGuard::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Debug.kt:91
 MISSING_SYMBOL type_alias DeTable at tmp/toml/src/de/parser/detable.rs:16
 MISSING_SYMBOL function parse at tmp/toml/src/de/parser/detable.rs:20
 MISSING_SYMBOL function parse_recoverable at tmp/toml/src/de/parser/detable.rs:32
 MISSING_SYMBOL function make_owned at tmp/toml/src/de/parser/detable.rs:40
-EXTRA_TARGET_SYMBOL type DeTable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:9
-EXTRA_TARGET_SYMBOL function DeTable::makeOwned at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:24
-EXTRA_TARGET_SYMBOL function DeTable::toTable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:30
-EXTRA_TARGET_SYMBOL function DeTable::Companion::parse at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:44
-EXTRA_TARGET_SYMBOL function DeTable::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:49
+EXTRA_TARGET_SYMBOL type DeTable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:10
+EXTRA_TARGET_SYMBOL function DeTable::makeOwned at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:25
+EXTRA_TARGET_SYMBOL function DeTable::toTable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:31
+EXTRA_TARGET_SYMBOL function DeTable::Companion::parse at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:45
+EXTRA_TARGET_SYMBOL function DeTable::Companion::parseRecoverable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:50
+EXTRA_TARGET_SYMBOL function DeTable::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Detable.kt:60
 EXTRA_TARGET_SYMBOL type DetableTest at src/commonTest/kotlin/io/github/kotlinmania/toml/de/parser/DetableTest.kt:8
 EXTRA_TARGET_SYMBOL function DetableTest::testDeTableOperations at src/commonTest/kotlin/io/github/kotlinmania/toml/de/parser/DetableTest.kt:9
 PRESENT type_alias DeString at tmp/toml/src/de/parser/devalue.rs:15 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:7
@@ -344,10 +350,10 @@ MISSING_SYMBOL function as_table_mut at tmp/toml/src/de/parser/devalue.rs:290
 MISSING_SYMBOL function is_table at tmp/toml/src/de/parser/devalue.rs:298
 MISSING_SYMBOL function same_type at tmp/toml/src/de/parser/devalue.rs:303
 MISSING_SYMBOL function type_str at tmp/toml/src/de/parser/devalue.rs:308
-PRESENT type_alias Output at tmp/toml/src/de/parser/devalue.rs:325 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:247
+PRESENT type_alias Output at tmp/toml/src/de/parser/devalue.rs:325 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:260
 MISSING_SYMBOL function index at tmp/toml/src/de/parser/devalue.rs:327
-PRESENT type Index at tmp/toml/src/de/parser/devalue.rs:339 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:257
-PRESENT type Sealed at tmp/toml/src/de/parser/devalue.rs:347 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:252
+PRESENT type Index at tmp/toml/src/de/parser/devalue.rs:339 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:270
+PRESENT type Sealed at tmp/toml/src/de/parser/devalue.rs:347 -> src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:265
 MISSING_SYMBOL function index at tmp/toml/src/de/parser/devalue.rs:354
 MISSING_SYMBOL function index at tmp/toml/src/de/parser/devalue.rs:363
 MISSING_SYMBOL function index at tmp/toml/src/de/parser/devalue.rs:372
@@ -415,15 +421,20 @@ EXTRA_TARGET_SYMBOL property DeValue::isTableVal at src/commonMain/kotlin/io/git
 EXTRA_TARGET_SYMBOL function DeValue::sameType at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:181
 EXTRA_TARGET_SYMBOL function DeValue::typeStr at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:183
 EXTRA_TARGET_SYMBOL function DeValue::toValue at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:194
-EXTRA_TARGET_SYMBOL function DeValue::Companion::parse at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:220
-EXTRA_TARGET_SYMBOL function DeValue::Companion::parseRecoverable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:231
-EXTRA_TARGET_SYMBOL function Index::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:258
-EXTRA_TARGET_SYMBOL type IntIndex at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:261
-EXTRA_TARGET_SYMBOL property IntIndex::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:262
-EXTRA_TARGET_SYMBOL function IntIndex::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:265
-EXTRA_TARGET_SYMBOL type StringIndex at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:272
-EXTRA_TARGET_SYMBOL property StringIndex::key at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:273
-EXTRA_TARGET_SYMBOL function StringIndex::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:276
+EXTRA_TARGET_SYMBOL function DeValue::get at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:219
+EXTRA_TARGET_SYMBOL function DeValue::get at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:221
+EXTRA_TARGET_SYMBOL function DeValue::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:223
+EXTRA_TARGET_SYMBOL function DeValue::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:226
+EXTRA_TARGET_SYMBOL function DeValue::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:229
+EXTRA_TARGET_SYMBOL function DeValue::Companion::parse at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:233
+EXTRA_TARGET_SYMBOL function DeValue::Companion::parseRecoverable at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:244
+EXTRA_TARGET_SYMBOL function Index::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:271
+EXTRA_TARGET_SYMBOL type IntIndex at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:274
+EXTRA_TARGET_SYMBOL property IntIndex::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:275
+EXTRA_TARGET_SYMBOL function IntIndex::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:278
+EXTRA_TARGET_SYMBOL type StringIndex at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:285
+EXTRA_TARGET_SYMBOL property StringIndex::key at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:286
+EXTRA_TARGET_SYMBOL function StringIndex::index at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Devalue.kt:289
 EXTRA_TARGET_SYMBOL type DevalueTest at src/commonTest/kotlin/io/github/kotlinmania/toml/de/parser/DevalueTest.kt:10
 EXTRA_TARGET_SYMBOL function DevalueTest::testDeInteger at src/commonTest/kotlin/io/github/kotlinmania/toml/de/parser/DevalueTest.kt:11
 EXTRA_TARGET_SYMBOL function DevalueTest::testDeFloat at src/commonTest/kotlin/io/github/kotlinmania/toml/de/parser/DevalueTest.kt:33
@@ -483,19 +494,8 @@ MISSING_SYMBOL function on_scalar at tmp/toml/src/de/parser/value.rs:64
 EXTRA_TARGET_SYMBOL type ValueParser at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Value.kt:7
 EXTRA_TARGET_SYMBOL function ValueParser::parseScalar at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Value.kt:8
 EXTRA_TARGET_SYMBOL function ValueParser::isDatetimePattern at src/commonMain/kotlin/io/github/kotlinmania/toml/de/parser/Value.kt:87
+MISSING_FILE lib.rs
 MISSING_SYMBOL type ReadmeDoctests at tmp/toml/src/lib.rs:204
-EXTRA_TARGET_SYMBOL type Toml at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:7
-EXTRA_TARGET_SYMBOL property Toml::VERSION at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:8
-EXTRA_TARGET_SYMBOL function Toml::fromStr at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:13
-EXTRA_TARGET_SYMBOL function Toml::fromSlice at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:20
-EXTRA_TARGET_SYMBOL function Toml::toString at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:27
-EXTRA_TARGET_SYMBOL function Toml::toStringPretty at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:34
-EXTRA_TARGET_SYMBOL function fromStr at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:42
-EXTRA_TARGET_SYMBOL function fromSlice at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:49
-EXTRA_TARGET_SYMBOL function toTomlString at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:56
-EXTRA_TARGET_SYMBOL function toTomlStringPretty at src/commonMain/kotlin/io/github/kotlinmania/toml/Lib.kt:63
-EXTRA_TARGET_SYMBOL type LibTest at src/commonTest/kotlin/io/github/kotlinmania/toml/LibTest.kt:7
-EXTRA_TARGET_SYMBOL function LibTest::testVersion at src/commonTest/kotlin/io/github/kotlinmania/toml/LibTest.kt:8
 MISSING_SYMBOL function insert_toml at tmp/toml/src/macros.rs:408
 MISSING_SYMBOL function push_toml at tmp/toml/src/macros.rs:414
 MISSING_SYMBOL function traverse at tmp/toml/src/macros.rs:425
@@ -540,11 +540,11 @@ MISSING_SYMBOL function index_mut at tmp/toml/src/map.rs:379
 MISSING_SYMBOL function fmt at tmp/toml/src/map.rs:386
 MISSING_SYMBOL function from_iter at tmp/toml/src/map.rs:392
 MISSING_SYMBOL function extend at tmp/toml/src/map.rs:406
-PRESENT type Entry at tmp/toml/src/map.rs:451 -> src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:137
+PRESENT type Entry at tmp/toml/src/map.rs:451 -> src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:146
 MISSING_SYMBOL enum_variant Entry::Vacant at tmp/toml/src/map.rs:453
 MISSING_SYMBOL enum_variant Entry::Occupied at tmp/toml/src/map.rs:455
-PRESENT type VacantEntry at tmp/toml/src/map.rs:461 -> src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:180
-PRESENT type OccupiedEntry at tmp/toml/src/map.rs:468 -> src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:195
+PRESENT type VacantEntry at tmp/toml/src/map.rs:461 -> src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:189
+PRESENT type OccupiedEntry at tmp/toml/src/map.rs:468 -> src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:204
 MISSING_SYMBOL type_alias VacantEntryImpl at tmp/toml/src/map.rs:473
 MISSING_SYMBOL type_alias VacantEntryImpl at tmp/toml/src/map.rs:475
 MISSING_SYMBOL type_alias OccupiedEntryImpl at tmp/toml/src/map.rs:478
@@ -589,62 +589,62 @@ EXTRA_TARGET_SYMBOL property TomlMap::isDotted at src/commonMain/kotlin/io/githu
 EXTRA_TARGET_SYMBOL property TomlMap::isImplicit at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:9
 EXTRA_TARGET_SYMBOL property TomlMap::isInline at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:10
 EXTRA_TARGET_SYMBOL property TomlMap::underlying at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:12
-EXTRA_TARGET_SYMBOL property TomlMap::entries at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:23
-EXTRA_TARGET_SYMBOL property TomlMap::keys at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:24
-EXTRA_TARGET_SYMBOL property TomlMap::size at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:25
-EXTRA_TARGET_SYMBOL property TomlMap::values at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:26
-EXTRA_TARGET_SYMBOL function TomlMap::len at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:31
-EXTRA_TARGET_SYMBOL function TomlMap::containsKey at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:33
-EXTRA_TARGET_SYMBOL function TomlMap::containsValue at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:35
-EXTRA_TARGET_SYMBOL function TomlMap::get at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:37
-EXTRA_TARGET_SYMBOL function TomlMap::getMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:39
-EXTRA_TARGET_SYMBOL function TomlMap::getKeyValue at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:41
-EXTRA_TARGET_SYMBOL function TomlMap::isEmpty at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:50
-EXTRA_TARGET_SYMBOL function TomlMap::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:52
-EXTRA_TARGET_SYMBOL function TomlMap::put at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:54
-EXTRA_TARGET_SYMBOL function TomlMap::set at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:56
-EXTRA_TARGET_SYMBOL function TomlMap::remove at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:60
-EXTRA_TARGET_SYMBOL function TomlMap::removeEntry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:62
-EXTRA_TARGET_SYMBOL function TomlMap::retain at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:67
-EXTRA_TARGET_SYMBOL function TomlMap::mutEntries at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:77
-EXTRA_TARGET_SYMBOL function TomlMap::entry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:86
-EXTRA_TARGET_SYMBOL function TomlMap::clear at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:93
-EXTRA_TARGET_SYMBOL function TomlMap::putAll at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:97
-EXTRA_TARGET_SYMBOL function TomlMap::extend at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:101
-EXTRA_TARGET_SYMBOL function TomlMap::iter at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:107
-EXTRA_TARGET_SYMBOL function TomlMap::equals at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:109
-EXTRA_TARGET_SYMBOL function TomlMap::hashCode at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:115
-EXTRA_TARGET_SYMBOL function TomlMap::toString at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:117
-EXTRA_TARGET_SYMBOL function TomlMap::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:120
-EXTRA_TARGET_SYMBOL function TomlMap::Companion::withCapacity at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:122
-EXTRA_TARGET_SYMBOL function TomlMap::Companion::from at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:126
-EXTRA_TARGET_SYMBOL property Entry::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:138
-EXTRA_TARGET_SYMBOL function Entry::orInsert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:140
-EXTRA_TARGET_SYMBOL function Entry::orInsertWith at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:146
-EXTRA_TARGET_SYMBOL type Entry::Vacant at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:152
-EXTRA_TARGET_SYMBOL property Entry::Vacant::entry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:153
-EXTRA_TARGET_SYMBOL property Entry::Vacant::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:155
-EXTRA_TARGET_SYMBOL function Entry::Vacant::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:157
-EXTRA_TARGET_SYMBOL type Entry::Occupied at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:160
-EXTRA_TARGET_SYMBOL property Entry::Occupied::entry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:161
-EXTRA_TARGET_SYMBOL property Entry::Occupied::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:163
-EXTRA_TARGET_SYMBOL function Entry::Occupied::get at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:165
-EXTRA_TARGET_SYMBOL function Entry::Occupied::getMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:167
-EXTRA_TARGET_SYMBOL function Entry::Occupied::intoMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:169
-EXTRA_TARGET_SYMBOL function Entry::Occupied::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:171
-EXTRA_TARGET_SYMBOL function Entry::Occupied::remove at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:173
-EXTRA_TARGET_SYMBOL property VacantEntry::map at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:181
-EXTRA_TARGET_SYMBOL property VacantEntry::keyVal at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:182
-EXTRA_TARGET_SYMBOL function VacantEntry::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:184
-EXTRA_TARGET_SYMBOL function VacantEntry::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:186
-EXTRA_TARGET_SYMBOL property OccupiedEntry::map at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:196
-EXTRA_TARGET_SYMBOL property OccupiedEntry::keyVal at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:197
-EXTRA_TARGET_SYMBOL function OccupiedEntry::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:199
-EXTRA_TARGET_SYMBOL function OccupiedEntry::get at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:201
-EXTRA_TARGET_SYMBOL function OccupiedEntry::getMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:203
-EXTRA_TARGET_SYMBOL function OccupiedEntry::intoMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:205
-EXTRA_TARGET_SYMBOL function OccupiedEntry::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:207
-EXTRA_TARGET_SYMBOL function OccupiedEntry::remove at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:212
+EXTRA_TARGET_SYMBOL property TomlMap::entries at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:32
+EXTRA_TARGET_SYMBOL property TomlMap::keys at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:33
+EXTRA_TARGET_SYMBOL property TomlMap::size at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:34
+EXTRA_TARGET_SYMBOL property TomlMap::values at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:35
+EXTRA_TARGET_SYMBOL function TomlMap::len at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:40
+EXTRA_TARGET_SYMBOL function TomlMap::containsKey at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:42
+EXTRA_TARGET_SYMBOL function TomlMap::containsValue at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:44
+EXTRA_TARGET_SYMBOL function TomlMap::get at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:46
+EXTRA_TARGET_SYMBOL function TomlMap::getMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:48
+EXTRA_TARGET_SYMBOL function TomlMap::getKeyValue at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:50
+EXTRA_TARGET_SYMBOL function TomlMap::isEmpty at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:59
+EXTRA_TARGET_SYMBOL function TomlMap::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:61
+EXTRA_TARGET_SYMBOL function TomlMap::put at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:63
+EXTRA_TARGET_SYMBOL function TomlMap::set at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:65
+EXTRA_TARGET_SYMBOL function TomlMap::remove at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:69
+EXTRA_TARGET_SYMBOL function TomlMap::removeEntry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:71
+EXTRA_TARGET_SYMBOL function TomlMap::retain at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:76
+EXTRA_TARGET_SYMBOL function TomlMap::mutEntries at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:86
+EXTRA_TARGET_SYMBOL function TomlMap::entry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:95
+EXTRA_TARGET_SYMBOL function TomlMap::clear at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:102
+EXTRA_TARGET_SYMBOL function TomlMap::putAll at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:106
+EXTRA_TARGET_SYMBOL function TomlMap::extend at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:110
+EXTRA_TARGET_SYMBOL function TomlMap::iter at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:116
+EXTRA_TARGET_SYMBOL function TomlMap::equals at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:118
+EXTRA_TARGET_SYMBOL function TomlMap::hashCode at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:124
+EXTRA_TARGET_SYMBOL function TomlMap::toString at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:126
+EXTRA_TARGET_SYMBOL function TomlMap::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:129
+EXTRA_TARGET_SYMBOL function TomlMap::Companion::withCapacity at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:131
+EXTRA_TARGET_SYMBOL function TomlMap::Companion::from at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:135
+EXTRA_TARGET_SYMBOL property Entry::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:147
+EXTRA_TARGET_SYMBOL function Entry::orInsert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:149
+EXTRA_TARGET_SYMBOL function Entry::orInsertWith at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:155
+EXTRA_TARGET_SYMBOL type Entry::Vacant at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:161
+EXTRA_TARGET_SYMBOL property Entry::Vacant::entry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:162
+EXTRA_TARGET_SYMBOL property Entry::Vacant::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:164
+EXTRA_TARGET_SYMBOL function Entry::Vacant::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:166
+EXTRA_TARGET_SYMBOL type Entry::Occupied at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:169
+EXTRA_TARGET_SYMBOL property Entry::Occupied::entry at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:170
+EXTRA_TARGET_SYMBOL property Entry::Occupied::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:172
+EXTRA_TARGET_SYMBOL function Entry::Occupied::get at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:174
+EXTRA_TARGET_SYMBOL function Entry::Occupied::getMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:176
+EXTRA_TARGET_SYMBOL function Entry::Occupied::intoMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:178
+EXTRA_TARGET_SYMBOL function Entry::Occupied::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:180
+EXTRA_TARGET_SYMBOL function Entry::Occupied::remove at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:182
+EXTRA_TARGET_SYMBOL property VacantEntry::map at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:190
+EXTRA_TARGET_SYMBOL property VacantEntry::keyVal at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:191
+EXTRA_TARGET_SYMBOL function VacantEntry::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:193
+EXTRA_TARGET_SYMBOL function VacantEntry::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:195
+EXTRA_TARGET_SYMBOL property OccupiedEntry::map at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:205
+EXTRA_TARGET_SYMBOL property OccupiedEntry::keyVal at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:206
+EXTRA_TARGET_SYMBOL function OccupiedEntry::key at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:208
+EXTRA_TARGET_SYMBOL function OccupiedEntry::get at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:210
+EXTRA_TARGET_SYMBOL function OccupiedEntry::getMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:212
+EXTRA_TARGET_SYMBOL function OccupiedEntry::intoMut at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:214
+EXTRA_TARGET_SYMBOL function OccupiedEntry::insert at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:216
+EXTRA_TARGET_SYMBOL function OccupiedEntry::remove at src/commonMain/kotlin/io/github/kotlinmania/toml/map/Map.kt:221
 EXTRA_TARGET_SYMBOL type TomlMapTest at src/commonTest/kotlin/io/github/kotlinmania/toml/map/TomlMapTest.kt:9
 EXTRA_TARGET_SYMBOL function TomlMapTest::testEmptyMap at src/commonTest/kotlin/io/github/kotlinmania/toml/map/TomlMapTest.kt:10
 EXTRA_TARGET_SYMBOL function TomlMapTest::testBasicOperations at src/commonTest/kotlin/io/github/kotlinmania/toml/map/TomlMapTest.kt:20
@@ -772,7 +772,8 @@ EXTRA_TARGET_SYMBOL property SerializeDocumentTable::buf at src/commonMain/kotli
 EXTRA_TARGET_SYMBOL property SerializeDocumentTable::table at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Map.kt:14
 EXTRA_TARGET_SYMBOL property SerializeDocumentTable::style at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Map.kt:15
 EXTRA_TARGET_SYMBOL function SerializeDocumentTable::serializeTable at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Map.kt:17
-PRESENT type Serializer at tmp/toml/src/ser/document/mod.rs:36 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Serializer.kt:10
+MISSING_FILE ser/document/mod.rs
+MISSING_SYMBOL type Serializer at tmp/toml/src/ser/document/mod.rs:36
 MISSING_SYMBOL function new at tmp/toml/src/ser/document/mod.rs:47
 MISSING_SYMBOL function pretty at tmp/toml/src/ser/document/mod.rs:60
 MISSING_SYMBOL function with_table at tmp/toml/src/ser/document/mod.rs:66
@@ -814,11 +815,6 @@ MISSING_SYMBOL function serialize_tuple_variant at tmp/toml/src/ser/document/mod
 MISSING_SYMBOL function serialize_map at tmp/toml/src/ser/document/mod.rs:243
 MISSING_SYMBOL function serialize_struct at tmp/toml/src/ser/document/mod.rs:247
 MISSING_SYMBOL function serialize_struct_variant at tmp/toml/src/ser/document/mod.rs:255
-EXTRA_TARGET_SYMBOL property Serializer::buf at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Serializer.kt:11
-EXTRA_TARGET_SYMBOL property Serializer::style at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Serializer.kt:12
-EXTRA_TARGET_SYMBOL function Serializer::serialize at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Serializer.kt:14
-EXTRA_TARGET_SYMBOL function Serializer::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Serializer.kt:21
-EXTRA_TARGET_SYMBOL function Serializer::Companion::pretty at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Serializer.kt:23
 PRESENT type SerializationStrategy at tmp/toml/src/ser/document/strategy.rs:2 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Strategy.kt:9
 PRESENT enum_variant SerializationStrategy::Value at tmp/toml/src/ser/document/strategy.rs:3 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Strategy.kt:10
 PRESENT enum_variant SerializationStrategy::Table at tmp/toml/src/ser/document/strategy.rs:4 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/document/Strategy.kt:11
@@ -936,13 +932,9 @@ EXTRA_TARGET_SYMBOL function ErrorInner::Custom::toString at src/commonMain/kotl
 EXTRA_TARGET_SYMBOL type SerTest at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerTest.kt:9
 EXTRA_TARGET_SYMBOL function SerTest::testSerializationErrors at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerTest.kt:10
 EXTRA_TARGET_SYMBOL function SerTest::testStyle at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerTest.kt:36
-PRESENT function to_string at tmp/toml/src/ser/mod.rs:65 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/Serializer.kt:13
-PRESENT function to_string_pretty at tmp/toml/src/ser/mod.rs:85 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/Serializer.kt:23
-EXTRA_TARGET_SYMBOL type_alias DocumentSerializer at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/Serializer.kt:8
-EXTRA_TARGET_SYMBOL type SerializerTest at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerializerTest.kt:12
-EXTRA_TARGET_SYMBOL function SerializerTest::testSerializeSimpleTable at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerializerTest.kt:13
-EXTRA_TARGET_SYMBOL function SerializerTest::testSerializeChildTable at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerializerTest.kt:36
-EXTRA_TARGET_SYMBOL function SerializerTest::testSerializeArrayOfTables at src/commonTest/kotlin/io/github/kotlinmania/toml/ser/SerializerTest.kt:61
+MISSING_FILE ser/mod.rs
+MISSING_SYMBOL function to_string at tmp/toml/src/ser/mod.rs:65
+MISSING_SYMBOL function to_string_pretty at tmp/toml/src/ser/mod.rs:85
 PRESENT type Style at tmp/toml/src/ser/style.rs:2 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/Style.kt:16
 EXTRA_TARGET_SYMBOL property Style::multilineArray at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/Style.kt:17
 EXTRA_TARGET_SYMBOL property Style::Companion::DEFAULT at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/Style.kt:20
@@ -1099,7 +1091,8 @@ MISSING_SYMBOL type_alias Error at tmp/toml/src/ser/value/map.rs:515
 MISSING_SYMBOL function serialize_field at tmp/toml/src/ser/value/map.rs:518
 MISSING_SYMBOL function end at tmp/toml/src/ser/value/map.rs:526
 EXTRA_TARGET_SYMBOL function MapValueSerializer::serializeInlineTable at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/value/Map.kt:11
-PRESENT type ValueSerializer at tmp/toml/src/ser/value/mod.rs:61 -> src/commonMain/kotlin/io/github/kotlinmania/toml/ser/value/ValueSerializer.kt:10
+MISSING_FILE ser/value/mod.rs
+MISSING_SYMBOL type ValueSerializer at tmp/toml/src/ser/value/mod.rs:61
 MISSING_SYMBOL function new at tmp/toml/src/ser/value/mod.rs:71
 MISSING_SYMBOL function with_style at tmp/toml/src/ser/value/mod.rs:78
 MISSING_SYMBOL type_alias Ok at tmp/toml/src/ser/value/mod.rs:84
@@ -1141,9 +1134,6 @@ MISSING_SYMBOL function serialize_tuple_variant at tmp/toml/src/ser/value/mod.rs
 MISSING_SYMBOL function serialize_map at tmp/toml/src/ser/value/mod.rs:281
 MISSING_SYMBOL function serialize_struct at tmp/toml/src/ser/value/mod.rs:285
 MISSING_SYMBOL function serialize_struct_variant at tmp/toml/src/ser/value/mod.rs:293
-EXTRA_TARGET_SYMBOL function ValueSerializer::serialize at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/value/ValueSerializer.kt:11
-EXTRA_TARGET_SYMBOL function ValueSerializer::serializeString at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/value/ValueSerializer.kt:22
-EXTRA_TARGET_SYMBOL function ValueSerializer::serializeFloat at src/commonMain/kotlin/io/github/kotlinmania/toml/ser/value/ValueSerializer.kt:27
 MISSING_SYMBOL type_alias Table at tmp/toml/src/table.rs:14
 MISSING_SYMBOL function try_from at tmp/toml/src/table.rs:21
 MISSING_SYMBOL function try_into at tmp/toml/src/table.rs:35
@@ -1159,7 +1149,7 @@ MISSING_SYMBOL function deserialize_option at tmp/toml/src/table.rs:142
 MISSING_SYMBOL function deserialize_newtype_struct at tmp/toml/src/table.rs:149
 MISSING_SYMBOL type_alias Deserializer at tmp/toml/src/table.rs:168
 MISSING_SYMBOL function into_deserializer at tmp/toml/src/table.rs:170
-MISSING_SYMBOL type TableSerializer at tmp/toml/src/table.rs:175
+PRESENT type TableSerializer at tmp/toml/src/table.rs:175 -> src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:100
 MISSING_SYMBOL type_alias Ok at tmp/toml/src/table.rs:178
 MISSING_SYMBOL type_alias Error at tmp/toml/src/table.rs:179
 MISSING_SYMBOL type_alias SerializeSeq at tmp/toml/src/table.rs:181
@@ -1197,7 +1187,7 @@ MISSING_SYMBOL function serialize_tuple_variant at tmp/toml/src/table.rs:316
 MISSING_SYMBOL function serialize_map at tmp/toml/src/table.rs:326
 MISSING_SYMBOL function serialize_struct at tmp/toml/src/table.rs:330
 MISSING_SYMBOL function serialize_struct_variant at tmp/toml/src/table.rs:338
-MISSING_SYMBOL type SerializeMap at tmp/toml/src/table.rs:349
+PRESENT type SerializeMap at tmp/toml/src/table.rs:349 -> src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:68
 MISSING_SYMBOL function new at tmp/toml/src/table.rs:355
 MISSING_SYMBOL function with_capacity at tmp/toml/src/table.rs:362
 MISSING_SYMBOL type_alias Ok at tmp/toml/src/table.rs:371
@@ -1209,16 +1199,50 @@ MISSING_SYMBOL type_alias Ok at tmp/toml/src/table.rs:409
 MISSING_SYMBOL type_alias Error at tmp/toml/src/table.rs:410
 MISSING_SYMBOL function serialize_field at tmp/toml/src/table.rs:412
 MISSING_SYMBOL function end at tmp/toml/src/table.rs:420
-EXTRA_TARGET_SYMBOL type Table at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:6
-EXTRA_TARGET_SYMBOL function Table::equals at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:20
-EXTRA_TARGET_SYMBOL function Table::hashCode at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:26
-EXTRA_TARGET_SYMBOL function Table::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:29
-EXTRA_TARGET_SYMBOL function Table::Companion::from at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:31
-EXTRA_TARGET_SYMBOL function tableOf at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:42
-EXTRA_TARGET_SYMBOL function tomlTableOf at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:52
-EXTRA_TARGET_SYMBOL function parseTable at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:57
-EXTRA_TARGET_SYMBOL function toTomlString at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:64
-EXTRA_TARGET_SYMBOL function toTomlStringPretty at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:71
+EXTRA_TARGET_SYMBOL type Table at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:10
+EXTRA_TARGET_SYMBOL function Table::fmt at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:33
+EXTRA_TARGET_SYMBOL function Table::equals at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:35
+EXTRA_TARGET_SYMBOL function Table::hashCode at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:41
+EXTRA_TARGET_SYMBOL function Table::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:44
+EXTRA_TARGET_SYMBOL function Table::Companion::withCapacity at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:46
+EXTRA_TARGET_SYMBOL function Table::Companion::from at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:48
+EXTRA_TARGET_SYMBOL function Table::Companion::fromStr at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:54
+EXTRA_TARGET_SYMBOL function Table::Companion::tryFrom at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:56
+EXTRA_TARGET_SYMBOL function Table::Companion::tryInto at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:58
+EXTRA_TARGET_SYMBOL property SerializeMap::map at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:69
+EXTRA_TARGET_SYMBOL property SerializeMap::nextKey at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:70
+EXTRA_TARGET_SYMBOL function SerializeMap::serializeKey at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:72
+EXTRA_TARGET_SYMBOL function SerializeMap::serializeValue at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:76
+EXTRA_TARGET_SYMBOL function SerializeMap::serializeField at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:82
+EXTRA_TARGET_SYMBOL function SerializeMap::end at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:87
+EXTRA_TARGET_SYMBOL function SerializeMap::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:90
+EXTRA_TARGET_SYMBOL function SerializeMap::Companion::withCapacity at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:92
+EXTRA_TARGET_SYMBOL function TableSerializer::serialize at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:101
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeBool at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:116
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeI8 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:121
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeI16 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:126
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeI32 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:131
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeI64 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:136
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeU8 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:141
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeU16 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:146
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeU32 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:151
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeU64 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:156
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeF32 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:161
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeF64 at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:166
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeChar at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:171
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeStr at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:176
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeBytes at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:181
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeUnit at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:186
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeUnitStruct at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:189
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeUnitVariant at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:194
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeNone at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:199
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeMap at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:202
+EXTRA_TARGET_SYMBOL function TableSerializer::serializeStruct at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:205
+EXTRA_TARGET_SYMBOL function tableOf at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:214
+EXTRA_TARGET_SYMBOL function tomlTableOf at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:224
+EXTRA_TARGET_SYMBOL function parseTable at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:229
+EXTRA_TARGET_SYMBOL function toTomlString at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:236
+EXTRA_TARGET_SYMBOL function toTomlStringPretty at src/commonMain/kotlin/io/github/kotlinmania/toml/Table.kt:243
 EXTRA_TARGET_SYMBOL type TableTest at src/commonTest/kotlin/io/github/kotlinmania/toml/TableTest.kt:8
 EXTRA_TARGET_SYMBOL function TableTest::testTableCreation at src/commonTest/kotlin/io/github/kotlinmania/toml/TableTest.kt:9
 MISSING_SYMBOL type_alias Array at tmp/toml/src/value.rs:21
@@ -1444,4 +1468,4 @@ EXTRA_TARGET_SYMBOL function ValueTest::testArrayValue at src/commonTest/kotlin/
 EXTRA_TARGET_SYMBOL function ValueTest::testTableValue at src/commonTest/kotlin/io/github/kotlinmania/toml/ValueTest.kt:70
 EXTRA_TARGET_SYMBOL function ValueTest::testSameType at src/commonTest/kotlin/io/github/kotlinmania/toml/ValueTest.kt:82
 EXTRA_TARGET_SYMBOL function ValueTest::testFactoryMethods at src/commonTest/kotlin/io/github/kotlinmania/toml/ValueTest.kt:92
-Inventory totals: present=41, declaration_only=0, missing=950
+Inventory totals: present=42, declaration_only=0, missing=949
