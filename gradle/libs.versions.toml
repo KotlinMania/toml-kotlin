@@ -13,6 +13,8 @@ indexmap-kotlin = "0.1.5"
 serde-kotlin = "0.1.11"
 serde-json-kotlin = "0.1.1"
 
+androidxTestRunner = "1.7.0"
+
 [plugins]
 android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidKmp" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -33,6 +35,8 @@ kotlinx-benchmark-runtime = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-
 indexmap-kotlin = { module = "io.github.kotlinmania:indexmap-kotlin", version.ref = "indexmap-kotlin" }
 serde-kotlin = { module = "io.github.kotlinmania:serde-kotlin", version.ref = "serde-kotlin" }
 serde-json-kotlin = { module = "io.github.kotlinmania:serde-json-kotlin", version.ref = "serde-json-kotlin" }
+
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
 
 [bundles]
 toml-commonMain = [
