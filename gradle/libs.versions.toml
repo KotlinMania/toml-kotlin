@@ -9,9 +9,6 @@ detekt = "2.0.0-alpha.6"
 ktlint = "14.2.0"
 ktlintEngine = "1.8.0"
 kotlinxBenchmark = "0.5.0"
-indexmap-kotlin = "0.1.5"
-serde-kotlin = "0.1.11"
-serde-json-kotlin = "0.1.1"
 
 androidxTestRunner = "1.7.0"
 
@@ -32,18 +29,8 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "collectionsImmutable" }
 kotlinx-benchmark-runtime = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime", version.ref = "kotlinxBenchmark" }
-indexmap-kotlin = { module = "io.github.kotlinmania:indexmap-kotlin", version.ref = "indexmap-kotlin" }
-serde-kotlin = { module = "io.github.kotlinmania:serde-kotlin", version.ref = "serde-kotlin" }
-serde-json-kotlin = { module = "io.github.kotlinmania:serde-json-kotlin", version.ref = "serde-json-kotlin" }
 
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
 
 [bundles]
-toml-commonMain = [
-  "kotlinx-coroutines-core",
-  "kotlinx-datetime",
-  "collections-immutable",
-  "indexmap-kotlin",
-  "serde-kotlin",
-  "serde-json-kotlin",
-]
+toml-commonMain = []

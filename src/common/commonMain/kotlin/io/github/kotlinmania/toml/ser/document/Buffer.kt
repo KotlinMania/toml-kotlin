@@ -27,7 +27,7 @@ public class Buffer {
         key: String,
     ): Table {
         parent.hasChildren(true)
-        val keyPath = (parent.key ?: emptyList()) + listOf(key)
+        val keyPath = parent.key.orEmpty() + listOf(key)
         return newTable(keyPath)
     }
 

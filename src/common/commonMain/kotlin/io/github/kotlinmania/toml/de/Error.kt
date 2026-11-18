@@ -77,28 +77,28 @@ public class Error(
                 val colNum = column + 1
                 val gutter = lineNum.toString().length
                 val lines = currentInput.split('\n')
-                val content = lines.getOrNull(line) ?: ""
+                val content = lines.getOrNull(line).orEmpty()
                 val highlightLen =
                     currentSpan.length
                         .coerceAtMost((content.length - column).coerceAtLeast(0))
 
                 appendLine("TOML parse error at line $lineNum, column $colNum")
-                for (i in 0..gutter) {
+                repeat((gutter + 1).coerceAtLeast(0)) {
                     append(" ")
                 }
                 appendLine("|")
                 append("$lineNum | ")
                 appendLine(content)
 
-                for (i in 0..gutter) {
+                repeat((gutter + 1).coerceAtLeast(0)) {
                     append(" ")
                 }
                 append("|")
-                for (i in 0..column) {
+                repeat((column + 1).coerceAtLeast(0)) {
                     append(" ")
                 }
                 append("^")
-                for (i in 1 until highlightLen) {
+                repeat((highlightLen - 1).coerceAtLeast(0)) {
                     append("^")
                 }
                 appendLine()
